@@ -1,4 +1,9 @@
-package app;
+package app.personaje;
+
+import app.arma.Arma;
+import app.IHaceMagia;
+import app.ILlevaReliquia;
+import app.reliquia.Reliquia;
 
 //IHaceMagia:El Wizard puede hacer magia por lo cual debe implementar
 //esta interface. Sólo puede atacar epicamente si tiene menos de 10

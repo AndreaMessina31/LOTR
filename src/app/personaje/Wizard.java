@@ -1,8 +1,11 @@
-package app;
+package app.personaje;
 
 //IHaceMagia:El Wizard puede hacer magiapor lo cual debe implementar
 //esta interface. Sólo puede atacar epicamente si tiene menios de 10
 //de stamina y al menos 5 de enrgia magica
+
+import app.arma.Arma;
+import app.IHaceMagia;
 
 public class Wizard extends Humano implements IHaceMagia {
 

@@ -1,4 +1,6 @@
-package app;
+package app.personaje;
+
+import app.arma.Arma;
 
 import java.util.List;
 

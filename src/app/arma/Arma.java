@@ -1,4 +1,4 @@
-package app;
+package app.arma;
 
 public class Arma {
     public String nombre;

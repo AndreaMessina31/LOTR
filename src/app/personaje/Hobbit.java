@@ -1,4 +1,7 @@
-package app;
+package app.personaje;
+
+import app.ILlevaReliquia;
+import app.reliquia.Reliquia;
 
 public class Hobbit extends Criatura implements ILlevaReliquia {
 

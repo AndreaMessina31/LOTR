@@ -1,5 +1,7 @@
 package app;
 
+import app.reliquia.Reliquia;
+
 public interface ILlevaReliquia {
 
     // Devuelve la treliquia del portador

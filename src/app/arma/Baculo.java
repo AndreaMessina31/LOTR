@@ -1,4 +1,7 @@
-package app;
+package app.arma;
+
+import app.IEsMagico;
+import app.arma.Arma;
 
 //No gasta energia
 public class Baculo extends Arma implements IEsMagico {

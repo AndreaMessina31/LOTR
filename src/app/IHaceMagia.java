@@ -1,5 +1,8 @@
 package app;
 
+import app.arma.Arma;
+import app.personaje.Personaje;
+
 public interface IHaceMagia {
 
     // Devuelve energía mágica del implementador

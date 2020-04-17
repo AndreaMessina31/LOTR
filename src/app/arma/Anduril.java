@@ -1,8 +1,12 @@
-package app;
-//No gasta energia.
-public class Sting extends Espada implements IEsMagico {
+package app.arma;
 
-    public Sting(String nombre, int danio, int stamina) {
+import app.IEsMagico;
+import app.arma.Espada;
+
+//No gasta energia.
+public class Anduril extends Espada implements IEsMagico {
+
+    public Anduril(String nombre, int danio, int stamina) {
         super(nombre, danio, stamina);
         // TODO Auto-generated constructor stub
     }

@@ -1,4 +1,6 @@
-package app;
+package app.arma;
+
+import app.arma.Arma;
 
 public class Espada extends Arma {
 
