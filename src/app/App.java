@@ -11,7 +11,7 @@ public class App {
 
         Espada espada = new Espada("Espada", 10 , 10 );
 
-        Espada sting = new Espada ("Sting", 10 , 10 );
+        Sting sting = new Sting ("Sting", 10 , 10 );
 
         Espada anduril = new Espada ("Anduril", 10, 10);
         
@@ -41,9 +41,9 @@ public class App {
 
         //Personaje 
 
-        Humano humano = new Humano("Humano", 100 , 100);
+        Humano humano = new Humano("Humano", 100 , 90);
 
-        Humano wizard = new Humano ("Wizard", 100 , 100);
+        Humano wizard = new Humano ("Wizard", 100 , 80);
 
         Criatura criatura = new Criatura ("Criatura", 100, 100);
 
@@ -57,6 +57,6 @@ public class App {
 
         Criatura enano = new Criatura ("Enano", 100, 100);
         
-        Criatura troll = new Criatura ("Troll", 100, 100);
+        Criatura troll = new Criatura ("Troll", 100, 120);
     }
 }
