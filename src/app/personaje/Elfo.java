@@ -10,6 +10,11 @@ import app.reliquia.Reliquia;
 //de stamina y al menos 20 de enrgia magica
 public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia {
 
+    public Elfo(String nombre, int salud, int stamina) {
+        super(nombre, salud, stamina);
+        // TODO Auto-generated constructor stub
+    }
+
     // Posee la enregía mágica del Elfo (max 100)
     public int EnergiaMagica;
 

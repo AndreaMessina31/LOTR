@@ -5,6 +5,11 @@ import app.reliquia.Reliquia;
 
 public class Hobbit extends Criatura implements ILlevaReliquia {
 
+    public Hobbit(String nombre, int salud, int stamina) {
+        super(nombre, salud, stamina);
+        // TODO Auto-generated constructor stub
+    }
+
     // Reliquia que porta el hobbit
     public Reliquia reliquia;
 

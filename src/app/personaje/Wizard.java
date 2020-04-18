@@ -9,6 +9,11 @@ import app.IHaceMagia;
 
 public class Wizard extends Humano implements IHaceMagia {
 
+    public Wizard(String nombre, int salud, int stamina) {
+        super(nombre, salud, stamina);
+        // TODO Auto-generated constructor stub
+    }
+
     // Posee la energía máx del mago (Max 100)
     public int energiaMagica;
 

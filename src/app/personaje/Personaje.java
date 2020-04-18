@@ -11,6 +11,11 @@ public class Personaje {
     int stamina;// resistencia
     List<Arma> armas;// las armas disponibles que tiene que usar
 
+    public Personaje(String nombre, int salud, int stamina) {
+        this.nombre = nombre;
+        this.salud = salud;
+        this.stamina = stamina;
+    }
     // Devuelve true si el personaje esta vivo
     public boolean estaVivo() {
         return false;
