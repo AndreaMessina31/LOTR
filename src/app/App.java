@@ -9,6 +9,8 @@ import app.reliquia.*;
 public class App {
     public static void main(String[] args) throws Exception {
 
+        //Armas
+
         Espada espada = new Espada("Espada", 10 , 10 );
         
         HachaDoble hacha  = new HachaDoble("Hacha doble", 8 , 8 );
@@ -17,7 +19,7 @@ public class App {
     
         Baculo baculo = new Baculo ("Baculo", 6 , 7);
 
-        //Reliquia
+        //Reliquias
 
         FrascoGaladriel frascoGaladriel = new FrascoGaladriel("Gabriel", 10, 12, 0);
 
