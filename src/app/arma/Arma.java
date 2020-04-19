@@ -4,11 +4,6 @@ public class Arma {
     public String nombre;
     public int danio;
     public int stamina;
-    
-
-    public void seleccionarArma(){
-
-    }
 
     public Arma(String nombre, int danio, int stamina) {
         this.nombre = nombre;
@@ -16,4 +11,7 @@ public class Arma {
         this.stamina = stamina;
     }
 
+    public String getNombre() {
+        return nombre;
     }
+}

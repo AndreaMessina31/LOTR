@@ -5,8 +5,6 @@ import app.arma.*;
 import app.reliquia.*;
 import app.personaje.*; 
 public class JuegoLOTR {
-    public static void main(String[] args) throws Exception {
-
         //Arma
 
         Espada espada = new Espada("Espada", 10 , 10 );
@@ -14,11 +12,11 @@ public class JuegoLOTR {
         Sting sting = new Sting ("Sting", 10 , 10 );
 
         Anduril anduril = new Anduril ("Anduril", 10, 10);
-        
+
         HachaDoble hacha  = new HachaDoble("Hacha doble", 8 , 8 );
 
         ArcoYFlecha arco = new ArcoYFlecha( "Arco y flecha", 7 ,7 );
-    
+
         Baculo baculo = new Baculo ("Baculo", 6 , 7);
 
         //Reliquia
@@ -39,7 +37,7 @@ public class JuegoLOTR {
 
         AnilloVilya anilloVilya = new AnilloVilya("Vilya", 20, 20, 9);
 
-        //Personaje 
+        //Personaje
 
         Humano humano = new Humano("Humano", 100 , 90);
 
@@ -48,15 +46,15 @@ public class JuegoLOTR {
         Criatura criatura = new Criatura ("Criatura", 100, 100);
 
         Hobbit hobbit = new Hobbit ("Hobbit", 100, 100);
-        
+
         Elfo elfo = new Elfo ("Elfo", 100, 100);
 
         Orco orco = new Orco ("Orco", 100, 100);
-   
+
         Goblin goblin = new Goblin ("Goblin", 100, 100);
 
         Enano enano = new Enano ("Enano", 100, 100);
-        
+
         Troll troll = new Troll ("Troll", 100, 120);
     }
 }
