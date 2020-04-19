@@ -19,41 +19,6 @@ public class Personaje {
         this.armas = armas;
     }
 
-    public void seleccionarArma(String arma, List<Arma> armas1){
-
-       /*for(int i=0; i < armas.size(); i++){
-            armas[i]
-       }*/
-
-       /* switch() {
-            case 1:
-
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 6:
-                // code block
-                break;
-            default:
-        }*/
-
-        /*for (Arma a: armas1) {
-            if(a.getNombre().equals(arma)){
-                armas.add(a);
-            }
-        }*/
-    }
-
-    public void atacar(){
-
-    }
-
     // Devuelve true si el personaje esta vivo
     public boolean estaVivo() {
         return false;
@@ -63,4 +28,8 @@ public class Personaje {
     public void atacar(Personaje personaje, Arma arma) {
     }
 
+
+    public String getNombre() {
+        return nombre;
+    }
 }
