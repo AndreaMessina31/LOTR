@@ -1,10 +1,13 @@
 package app.personaje;
 
-public class Criatura extends Personaje{
+import java.util.List;
 
-    public Criatura(String nombre, int salud, int stamina) {
-        super(nombre, salud, stamina);
-        // TODO Auto-generated constructor stub
+import app.arma.Arma;
+
+public class Criatura extends Personaje {
+
+    public Criatura(String nombre, int salud, int stamina, List<Arma> armas) {
+        super(nombre, salud, stamina, armas);
     }
 
 }

@@ -5,27 +5,31 @@ package app.personaje;
 //de stamina y al menos 5 de enrgia magica
 
 import app.arma.Arma;
+import app.reliquia.Reliquia;
+
+import java.util.List;
+
 import app.IHaceMagia;
 
 public class Wizard extends Humano implements IHaceMagia {
 
-    public Wizard(String nombre, int salud, int stamina) {
-        super(nombre, salud, stamina);
-        // TODO Auto-generated constructor stub
-    }
-
     // Posee la energía máx del mago (Max 100)
     public int energiaMagica;
 
+    public Wizard(String nombre, int salud, int stamina, List<Arma> armas, Reliquia reliquia , int energiaMagica) {
+        super(nombre, salud, stamina, armas, reliquia);
+       this.energiaMagica = energiaMagica;
+    }
+
     @Override
     public int getEnergiaMagica() {
-        // TODO Auto-generated method stub
+        
         return 0;
     }
 
     @Override
     public void setEnergiaMagica(int EnergiaMagica) {
-        // TODO Auto-generated method stub
+       
 
     }
 
