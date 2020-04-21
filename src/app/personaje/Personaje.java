@@ -19,48 +19,37 @@ public class Personaje {
         this.armas = armas;
     }
 
-    public void seleccionarArma(String arma, List<Arma> armas1){
-
-       /*for(int i=0; i < armas.size(); i++){
-            armas[i]
-       }*/
-
-       /* switch() {
-            case 1:
-
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 6:
-                // code block
-                break;
-            default:
-        }*/
-
-        /*for (Arma a: armas1) {
-            if(a.getNombre().equals(arma)){
-                armas.add(a);
-            }
-        }*/
-    }
-
-    public void atacar(){
-
-    }
-
     // Devuelve true si el personaje esta vivo
     public boolean estaVivo() {
-        return false;
+        return salud > 0;
     }
 
-    // Ataca a personaje "personaje", usando el arma "arma"
-    public void atacar(Personaje personaje, Arma arma) {
+    // Ataca a personaje "personajeAtacado", usando el arma "arma"
+    public void atacar(Personaje personajeAtacado, Arma arma) {
+        //Si el personaje esta vivo y tiene stamina puede atacar.
+        if (estaVivo() && this.getStamina() > 0 )
+            // Se le resta danio al personaje atacado y se le descuenta en "salud"
+            personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
+            //La stamina del arma  decrementa la stamina del personaje.
+            this.setStamina(this.getStamina() - arma.getStamina());
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getSalud() {
+        return salud;
+    }
+
+    public int getStamina() {
+        return stamina;
+    }
+
+    public void setSalud(int salud) {
+        this.salud = salud;
+    }
+    public void setStamina(int stamina){
+        this.stamina = stamina;
+    }
 }
