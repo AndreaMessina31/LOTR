@@ -15,4 +15,8 @@ public class Arma {
     public String getNombre() {
         return nombre;
     }
+
+    public int getDanio() {
+        return danio;
+    }
 }

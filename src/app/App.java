@@ -88,6 +88,12 @@ public class App {
 
         String personaje = Teclado.nextLine();
 
+        Personaje p1 = new Personaje();
+        Personaje p2 = new Personaje();
+
+        p1.atacar(p2, arma);
+        p2.atacar(p1, hacha);
+
         jugador = JuegoLotr.buscarPersonaje(personaje);
     }
 
