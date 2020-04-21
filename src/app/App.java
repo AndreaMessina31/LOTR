@@ -69,7 +69,6 @@ public class App {
         String arma = Teclado.nextLine();
 
         Arma arm = JuegoLotr.buscarArma(arma);
-        jugador1.add(arm);
     }
 
     private static void elegirOpcionPersonaje() {
@@ -88,13 +87,16 @@ public class App {
 
         String personaje = Teclado.nextLine();
 
-        Personaje p1 = new Personaje();
-        Personaje p2 = new Personaje();
 
-        p1.atacar(p2, arma);
-        p2.atacar(p1, hacha);
 
-        jugador = JuegoLotr.buscarPersonaje(personaje);
+        //Personaje p1 = new Personaje();
+       // Personaje p2 = new Personaje();
+
+        //System.out.println("P1 VA A ATACAR");
+        //p1.atacar(p2, arma);
+        //p2.atacar(p1, hacha);
+
+        //jugador = JuegoLotr.buscarPersonaje(personaje);
     }
 
     public static JuegoLOTR inicializar() {
@@ -123,7 +125,6 @@ public class App {
         armas.add(hacha);
         armas.add(arco);
         armas.add(baculo);
-
 
         //Reliquia
 

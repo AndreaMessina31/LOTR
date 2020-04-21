@@ -26,14 +26,9 @@ public class Personaje {
 
     // Ataca a personaje "personaje", usando el arma "arma"
     public void atacar(Personaje otroPersonaje, Arma arma) {
-        if(estaVivo()) otroPersonaje.getSalud() -= arma.getDanio();
     }
 
     public String getNombre() {
         return nombre;
-    }
-
-    public int getSalud() {
-        return salud;
     }
 }
