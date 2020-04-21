@@ -28,14 +28,15 @@ public class JuegoLOTR {
           return null;
      }
 
-     public Personaje buscarPersonaje(String nombrePersonaje){
+     public int buscarPersonaje(int personaje){
 
-          for (Personaje p : this.personajes) {
-               if (p.getNombre().equals(nombrePersonaje)) {
-                    return p;
+          for (int i = 0; i < personajes.size(); i++) {
+              int p = personajes.get(i+1);
+               if (p == personaje) {
+                    return p.get(i);
                }
           }
-          return null;
+          return Integer.parseInt(null);
      }
 
 

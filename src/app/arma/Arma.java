@@ -24,4 +24,8 @@ public class Arma {
     public int getStamina(){
     return stamina;
     }
+
+    public int getDanio() {
+        return danio;
+    }
 }

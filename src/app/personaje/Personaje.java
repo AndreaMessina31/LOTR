@@ -24,6 +24,7 @@ public class Personaje {
         return salud > 0;
     }
 
+<<<<<<< HEAD
     // Ataca a personaje "personajeAtacado", usando el arma "arma"
     public void atacar(Personaje personajeAtacado, Arma arma) {
         //Si el personaje esta vivo y tiene stamina puede atacar.
@@ -32,6 +33,10 @@ public class Personaje {
             personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
             //La stamina del arma  decrementa la stamina del personaje.
             this.setStamina(this.getStamina() - arma.getStamina());
+=======
+    // Ataca a personaje "personaje", usando el arma "arma"
+    public void atacar(Personaje otroPersonaje, Arma arma) {
+>>>>>>> 786f2c86f5e2763388c68baee99ad0408900bf18
     }
 
     public String getNombre() {
