@@ -18,15 +18,8 @@ public class Arma {
    
     }
 
-    public int getDanio(){
-        return danio;
-    }
     public int getStamina(){
     return stamina;
-    }
-
-    public int getStamina() {
-        return stamina;
     }
 
     public int getDanio() {
