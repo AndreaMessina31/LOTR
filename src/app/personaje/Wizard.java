@@ -7,8 +7,6 @@ package app.personaje;
 import app.arma.Arma;
 import app.reliquia.Reliquia;
 
-import java.util.List;
-
 import app.IHaceMagia;
 
 public class Wizard extends Humano implements IHaceMagia {
@@ -16,8 +14,8 @@ public class Wizard extends Humano implements IHaceMagia {
     // Posee la energía máx del mago (Max 100)
     public int energiaMagica;
 
-    public Wizard(String nombre, int salud, int stamina, List<Arma> armas, Reliquia reliquia , int energiaMagica) {
-        super(nombre, salud, stamina, armas, reliquia);
+    public Wizard(String nombre, int salud, int stamina, Reliquia reliquia , int energiaMagica) {
+        super(nombre, salud, stamina, reliquia);
        this.energiaMagica = energiaMagica;
     }
 

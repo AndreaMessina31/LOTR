@@ -18,8 +18,8 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia {
 
     public Reliquia reliquia;// Reliquia que porta el Elfo
     
-    public Elfo(String nombre, int salud, int stamina, List<Arma> armas, Reliquia reliquia , int energiaMagica) {
-        super(nombre, salud, stamina, armas);
+    public Elfo(String nombre, int salud, int stamina, Reliquia reliquia , int energiaMagica) {
+        super(nombre, salud, stamina);
         this.reliquia = reliquia;
         this.energiaMagica = energiaMagica;
     }

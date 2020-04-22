@@ -16,7 +16,21 @@ public class Arma {
         return nombre;
     }
 
+    public int getStamina() {
+        return stamina;
+    }
+
     public int getDanio() {
         return danio;
     }
+
+    @Override
+    public String toString() {
+        return "Arma{" +
+                "nombre='" + nombre + '\'' +
+                ", danio=" + danio +
+                ", stamina=" + stamina +
+                '}';
+    }
+
 }
