@@ -23,21 +23,36 @@ public class Personaje {
         return salud > 0;
     }
 
+<<<<<<< HEAD
     // Ataca a personaje "personajeAtacado", usando el arma "arma"
     public void atacar(Personaje personajeAtacado, Arma arma) {
         //una arma
         //Si el personaje esta vivo y tiene stamina puede atacar.
         if (estaVivo() && this.getStamina() > 0 ){
 
+=======
+<<<<<<< HEAD
+    // Ataca a personaje "personajeAtacado", usando el arma "arma"
+    public void atacar(Personaje personajeAtacado, Arma arma) {
+        //Si el personaje esta vivo y tiene stamina puede atacar.
+        if (estaVivo() && this.getStamina() > 0 )
+>>>>>>> 00737a9be135a4d83f981aa9c8784560f219a389
             // Se le resta danio al personaje atacado y se le descuenta en "salud"
             personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
             //La stamina del arma  decrementa la stamina del personaje.
             this.setStamina(this.getStamina() - arma.getStamina());
+<<<<<<< HEAD
         }
     }
 
     public void agregarArma(Arma arma){
         this.armas.add(arma);
+=======
+=======
+    // Ataca a personaje "personaje", usando el arma "arma"
+    public void atacar(Personaje otroPersonaje, Arma arma) {
+>>>>>>> 786f2c86f5e2763388c68baee99ad0408900bf18
+>>>>>>> 00737a9be135a4d83f981aa9c8784560f219a389
     }
 
     public String getNombre() {
@@ -48,14 +63,18 @@ public class Personaje {
         return salud;
     }
 
+<<<<<<< HEAD
     public void setSalud(int salud) {
         this.salud = salud;
     }
 
+=======
+>>>>>>> 00737a9be135a4d83f981aa9c8784560f219a389
     public int getStamina() {
         return stamina;
     }
 
+<<<<<<< HEAD
     public void setStamina(int stamina) {
         this.stamina = stamina;
     }
@@ -68,5 +87,12 @@ public class Personaje {
                 ", stamina=" + stamina +
                 ", armas=" + armas +
                 '}';
+=======
+    public void setSalud(int salud) {
+        this.salud = salud;
+    }
+    public void setStamina(int stamina){
+        this.stamina = stamina;
+>>>>>>> 00737a9be135a4d83f981aa9c8784560f219a389
     }
 }
