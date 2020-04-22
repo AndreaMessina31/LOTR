@@ -13,17 +13,13 @@ public class Hobbit extends Criatura implements ILlevaReliquia {
         
     }
 
- 
-
     @Override
     public Reliquia getReliquia() {
-        // TODO Auto-generated method stub
-        return null;
+        return reliquia;
     }
 
     @Override
     public void setReliquia(Reliquia reliquia) {
-        // TODO Auto-generated method stub
-
+        this.reliquia = reliquia;
     }
 }

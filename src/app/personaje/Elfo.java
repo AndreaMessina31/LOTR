@@ -36,9 +36,6 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia {
 
     @Override
     public boolean puedoEjecutarAtaqueEpico() {
-
-
-
         return false;
     }
 
@@ -49,12 +46,12 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia {
 
     @Override
     public Reliquia getReliquia() {
-        return null;
+        return reliquia;
     }
 
     @Override
     public void setReliquia(Reliquia reliquia) {
-
+        this.reliquia = reliquia;
     }
 
 }

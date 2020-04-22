@@ -15,10 +15,11 @@ public class Humano extends Personaje implements ILlevaReliquia {
     
     @Override
     public Reliquia getReliquia() {
-        return null;
+        return reliquia;
     }
 
     @Override
     public void setReliquia(Reliquia reliquia) {
+        this.reliquia = reliquia;
     }
 }
