@@ -1,5 +1,6 @@
 package app.arma;
 
+
 public class Arma {
     public String nombre;
     public int danio;
@@ -14,5 +15,24 @@ public class Arma {
 
     public String getNombre() {
         return nombre;
+   
     }
+
+    public int getStamina(){
+    return stamina;
+    }
+
+    public int getDanio() {
+        return danio;
+    }
+
+    @Override
+    public String toString() {
+        return "Arma{" +
+                "nombre='" + nombre + '\'' +
+                ", danio=" + danio +
+                ", stamina=" + stamina +
+                '}';
+    }
+
 }

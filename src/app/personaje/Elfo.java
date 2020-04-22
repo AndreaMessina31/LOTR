@@ -18,46 +18,40 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia {
 
     public Reliquia reliquia;// Reliquia que porta el Elfo
     
-    public Elfo(String nombre, int salud, int stamina, List<Arma> armas, Reliquia reliquia , int energiaMagica) {
-        super(nombre, salud, stamina, armas);
+    public Elfo(String nombre, int salud, int stamina, Reliquia reliquia , int energiaMagica) {
+        super(nombre, salud, stamina);
         this.reliquia = reliquia;
         this.energiaMagica = energiaMagica;
     }
 
     @Override
     public int getEnergiaMagica() {
-        // TODO Auto-generated method stub
         return 0;
     }
 
     @Override
     public void setEnergiaMagica(int EnergiaMagica) {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     public boolean puedoEjecutarAtaqueEpico() {
-        // TODO Auto-generated method stub
         return false;
     }
 
     @Override
     public void ataqueEpico(Personaje personaje, Arma arma) {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     public Reliquia getReliquia() {
-        // TODO Auto-generated method stub
-        return null;
+        return reliquia;
     }
 
     @Override
     public void setReliquia(Reliquia reliquia) {
-        // TODO Auto-generated method stub
-
+        this.reliquia = reliquia;
     }
 
 }
