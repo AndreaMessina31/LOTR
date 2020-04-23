@@ -14,32 +14,40 @@ public class Wizard extends Humano implements IHaceMagia {
     // Posee la energía máx del mago (Max 100)
     public int energiaMagica;
 
-    public Wizard(String nombre, int salud, int stamina, Reliquia reliquia , int energiaMagica) {
+    public Wizard(String nombre, int salud, int stamina, Reliquia reliquia, int energiaMagica) {
         super(nombre, salud, stamina, reliquia);
-       this.energiaMagica = energiaMagica;
+        this.energiaMagica = energiaMagica;
     }
 
     @Override
     public int getEnergiaMagica() {
-        
-        return 0;
+
+        return energiaMagica;
     }
 
     @Override
-    public void setEnergiaMagica(int EnergiaMagica) {
-       
+    public void setEnergiaMagica(int energiaMagica) {
+        this.energiaMagica = energiaMagica;
 
     }
 
     @Override
     public boolean puedoEjecutarAtaqueEpico() {
-        // TODO Auto-generated method stub
-        return false;
+        if (this.getStamina() < 10 && this.energiaMagica >= 5) {
+            return true;
+        } else {
+            return false;
+
+        }
     }
 
     @Override
     public void ataqueEpico(Personaje personaje, Arma arma) {
-        // TODO Auto-generated method stub
+        if (puedoEjecutarAtaqueEpico()) {
+            this.setStamina(0);
+            this.setEnergiaMagica(0);
+
+        }
 
     }
 

@@ -1,19 +1,15 @@
 package app;
 
-
 import app.arma.*;
 import app.personaje.*;
 import java.util.Scanner;
-
-import app.personaje.Humano;
-import app.personaje.Wizard;
 
 public class App {
 
     public static Scanner Teclado = new Scanner(System.in);
     public static JuegoLOTR JuegoLotr;
 
-    //TODO preguntas para el profe
+    // TODO preguntas para el profe
 
     public static void main(String[] args) throws Exception {
         System.out.println("         ___ . .  _                                                                                             \n" +
@@ -56,18 +52,9 @@ public class App {
         System.out.println("Jugador 1: " + p1.toString());
         System.out.println("Jugador 2: " + p2.toString());
 
-        System.out.println("ATACANDOOOOO");
-        p1.atacar(p2, a1);
+       JuegoLOTR.iniciarBatalla(p1, p2, a1, a2);
 
-        System.out.println("Jugador 1: " + p1.toString());
-        System.out.println("Jugador 2: " + p2.toString());
-
-        System.out.println("ATACANDOOOOO");
-        p2.atacar(p1, a2);
-
-        System.out.println("Jugador 1: " + p1.toString());
-        System.out.println("Jugador 2: " + p2.toString());
-    }
+       }
 
     private static Arma elegirOpcionArma() {
         System.out.println("Ingrese el nombre del arma");
@@ -118,5 +105,11 @@ public class App {
 
         return juego;
     }
+
+   // public static void preguntar(){
+     //   ataqueEpico= System.out
+   // }
+
+   
 
 }

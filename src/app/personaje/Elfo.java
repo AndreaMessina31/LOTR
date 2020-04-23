@@ -17,8 +17,8 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia {
     public int energiaMagica;
 
     public Reliquia reliquia;// Reliquia que porta el Elfo
-    
-    public Elfo(String nombre, int salud, int stamina, Reliquia reliquia , int energiaMagica) {
+
+    public Elfo(String nombre, int salud, int stamina, Reliquia reliquia, int energiaMagica) {
         super(nombre, salud, stamina);
         this.reliquia = reliquia;
         this.energiaMagica = energiaMagica;
@@ -26,21 +26,31 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia {
 
     @Override
     public int getEnergiaMagica() {
-        return 0;
+        return energiaMagica;
     }
 
     @Override
-    public void setEnergiaMagica(int EnergiaMagica) {
-
+    public void setEnergiaMagica(int energiaMagica) {
+        this.energiaMagica = energiaMagica;
     }
 
     @Override
     public boolean puedoEjecutarAtaqueEpico() {
-        return false;
+
+        // return this.getStamina() < 10 && this.energiaMagica >= 20
+        if (this.getStamina() < 10 && this.energiaMagica >= 20) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public void ataqueEpico(Personaje personaje, Arma arma) {
+        if (puedoEjecutarAtaqueEpico()) {
+            this.setStamina(0);
+            this.setEnergiaMagica(0);
+        }
 
     }
 
