@@ -42,7 +42,7 @@ public class JuegoLOTR {
 
         int i = 0;
 
-        while (p1.getSalud() >0 || p2.getSalud() >0) {
+        while (p1.estaVivo() && p2.estaVivo()) {
 
             System.out.println("ATACANDOOOOO P1");
             p1.atacar(p2, a1);
