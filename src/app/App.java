@@ -8,11 +8,16 @@ public class App {
 
     public static Scanner Teclado = new Scanner(System.in);
     public static JuegoLOTR JuegoLotr;
+    public static final String yellow = "\033[33m";
 
     // TODO preguntas para el profe
 
     public static void main(String[] args) throws Exception {
-        System.out.println("         ___ . .  _                                                                                             \n" +
+        System.out.println("                                ");
+        System.out.println("                                ");
+        System.out.println("BIENVENIDO!");
+        System.out.println("                                ");
+        System.out.println(yellow + "         ___ . .  _                                                                                             \n" +
                 "\"T$$$P\"   |  |_| |_                                                                                             \n" +
                 " :$$$     |  | | |_                                                                                             \n" +
                 " :$$$                                                      \"T$$$$$$$b.                                          \n" +
@@ -26,6 +31,9 @@ public class App {
                 "  $$$;    \"^$$$$$^\"   d$$     `T.d$$$$$P^\"     $  $\"\"\"$ $\"\", $$$    T$b  d$$bd$b      d$b   \"^TbsssP\" 'T$bgd$P  \n" +
                 "  $$$b.____.dP                                 $ .$. .$.$ss,d$$$b.   T$b.                                       \n" +
                 ".d$$$$$$$$$$P  bug                                                    `T$b. ");
+        System.out.println("                                ");
+        System.out.println("                                ");
+        System.out.println("                                ");
 
 
         JuegoLotr = inicializar();
@@ -37,7 +45,11 @@ public class App {
         Arma a2 = null;
 
         for(int i = 1; i <= 2; i++){
-            System.out.println("Elegir jugador " + i);
+            System.out.println("                                ");
+            System.out.println("                                ");
+            System.out.println("Eleja jugador " + i);
+            System.out.println("                                ");
+            System.out.println("                                ");
             if(i == 1){
                 p1 = elegirOpcionPersonaje();
                 a1 = elegirOpcionArma();
@@ -49,15 +61,16 @@ public class App {
             }
         }
 
+        System.out.println("                                ");
         System.out.println("Jugador 1: " + p1.toString());
         System.out.println("Jugador 2: " + p2.toString());
-
+        System.out.println("                                ");
        JuegoLOTR.iniciarBatalla(p1, p2, a1, a2);
 
        }
 
     private static Arma elegirOpcionArma() {
-        System.out.println("Ingrese el nombre del arma");
+        System.out.println("Ingrese el numero del arma");
         System.out.println("*********************");
         System.out.println("1. Espada Sting");
         System.out.println("2. Espada Anduril");
@@ -76,7 +89,7 @@ public class App {
     }
 
     private static Personaje elegirOpcionPersonaje() {
-        System.out.println("Ingrese el nombre del Personaje");
+        System.out.println("Ingrese el numero del Personaje");
         System.out.println("*********************");
         System.out.println("1. Aragorn");
         System.out.println("2. Boromir");

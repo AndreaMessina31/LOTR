@@ -12,6 +12,7 @@ public class JuegoLOTR {
 
     public static List<Arma> armas = new ArrayList<Arma>();
     public static List<Personaje> personajes = new ArrayList<Personaje>();
+    public static final String blue = "\033[34m";
     // public List<Reliquia> reliquias = new ArrayList<Reliquia>();
 
     public static Arma buscarArma(int num) {
@@ -40,25 +41,44 @@ public class JuegoLOTR {
 
     public static void iniciarBatalla(Personaje p1, Personaje p2, Arma a1, Arma a2) {
 
-        int i = 0;
+        String color = blue;
 
         while (p1.estaVivo() && p2.estaVivo()) {
+            if(p1.estaVivo()){
+                System.out.println("");
+                System.out.println( color + "                                ");
+                System.out.println("ATACANDOOOOO P1");
+                p1.atacar(p2, a1);
+                System.out.println("                                ");
+                System.out.println("Atacando 1: "+ p1.getNombre());
+                System.out.println("Arma stamina " + a1.getStamina());
+                System.out.println("Pers stamina " + p1.getStamina());
 
-            System.out.println("ATACANDOOOOO P1");
-            p1.atacar(p2, a1);
+                System.out.println("                                ");
 
-            System.out.println("Jugador 1: " + p1.toString());
-            System.out.println("Jugador 2: " + p2.toString());
+                System.out.println("Atacado 2: " + p2.getNombre());
+                System.out.println("Arma danio " + a1.getDanio());
+                System.out.println("Pers salud "  + p2.getSalud());
+            }
 
-            System.out.println("ATACANDOOOOO P2");
-            p2.atacar(p1, a2);
+            if(p2.estaVivo()){
+                System.out.println("                                ");
+                System.out.println("ATACANDOOOOO P2");
+                p2.atacar(p1, a2);
+                System.out.println("                                ");
+                System.out.println("Atacando 2: "+ p2.getNombre());
+                System.out.println("Arma stamina " + a2.getStamina());
+                System.out.println("Pers stamina " + p2.getStamina());
 
-            System.out.println("Jugador 1: " + p1.toString());
-            System.out.println("Jugador 2: " + p2.toString());
-            i++;
-            
+                System.out.println("                                ");
+
+                System.out.println( color + " Atacado 1: " + p1.getNombre());
+                System.out.println("Arma danio " + a2.getDanio());
+                System.out.println("Pers salud "  + p1.getSalud());
+            }
         }
-        System.out.println("Batalla finalizada" + "jugador 1" + p1.getSalud() + "jugador 2 " + p2.getSalud());
+        System.out.println("                                ");
+        System.out.println("Batalla finalizada" + "jugador 1 " + p1.getNombre() + ": salud " + p1.getSalud() + "     jugador 2 " + p2.getNombre() + ": salud " + p2.getSalud());
         if (p1.getSalud() <= 0) {
 
             System.out.println("El ganador es " + p2.getNombre());
