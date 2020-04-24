@@ -45,7 +45,7 @@ public class JuegoLOTR {
     public static void iniciarBatalla(Personaje p1, Personaje p2, Arma a1, Arma a2) {
 
         String color = blue;
-
+        int i = 0;
         // El juego sigue hasta que uno de los jugadores se queda sin vida.
         while (p1.estaVivo() && p2.estaVivo()) {
             if (p1.estaVivo()) {
@@ -77,11 +77,18 @@ public class JuegoLOTR {
                     System.out.println("Jugador 1: " + p1.toString());
                     System.out.println("Jugador 2: " + p2.toString());
                 } else {
-                    System.out.println(p2.getNombre() + " No puedes atacar, te quedaste sin stamnina ");
+                    System.out.println(p2.getNombre() + " no puedes atacar, te quedaste sin stamnina ");
 
                 }
             } else {
-                System.out.println(p2.getNombre() + " Estas muerto ! :c ");
+                System.out.println(p2.getNombre() + " estas muerto ! :c  ");
+                System.out.println("                                                                  \n" +
+                        "  __ _   __ _  _ __ ___    ___             ___  __   __  ___  _ __ \n" +
+                        " / _` | / _` || '_ ` _ \\  / _ \\           / _ \\ \\ \\ / / / _ \\| '__|\n" +
+                        "| (_| || (_| || | | | | ||  __/          | (_) | \\ V / |  __/| |   \n" +
+                        " \\__, | \\__,_||_| |_| |_| \\___|           \\___/   \\_/   \\___||_|   \n" +
+                        "  __/ |                                                            \n" +
+                        " |___/                                                   ");
             }
             i++;
 
