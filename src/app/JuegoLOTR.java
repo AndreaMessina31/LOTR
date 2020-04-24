@@ -13,7 +13,7 @@ public class JuegoLOTR {
     public static Scanner Teclado = new Scanner(System.in);
     public static List<Arma> armas = new ArrayList<Arma>();
     public static List<Personaje> personajes = new ArrayList<Personaje>();
-    // public List<Reliquia> reliquias = new ArrayList<Reliquia>();
+    public static final String blue = "\033[34m";
 
     // Recorre lista de armas.
     public static Arma buscarArma(int num) {
@@ -44,11 +44,10 @@ public class JuegoLOTR {
 
     public static void iniciarBatalla(Personaje p1, Personaje p2, Arma a1, Arma a2) {
 
-        int i = 0;
+        String color = blue;
 
         // El juego sigue hasta que uno de los jugadores se queda sin vida.
         while (p1.estaVivo() && p2.estaVivo()) {
-
             if (p1.estaVivo()) {
                 if (p1.tieneStamina()) {
                     System.out.println("ATACANDOOOOO P1");
@@ -97,7 +96,7 @@ public class JuegoLOTR {
         System.out.println("Batalla finalizada  stamina de los jugadores " + "  " + p1.getNombre() + "  " + p1.getStamina()
                 + "  " + p2.getNombre() +"  " + p2.getStamina());
 
-        if (p1.getSalud() <= 0) {
+        if (p1.estaVivo()) {
 
             System.out.println("El ganador es " + p2.getNombre());
 
