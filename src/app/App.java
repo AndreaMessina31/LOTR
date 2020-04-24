@@ -2,11 +2,8 @@ package app;
 
 import app.arma.*;
 import app.personaje.*;
-import java.util.Scanner;
 
 public class App {
-
-    public static Scanner Teclado = new Scanner(System.in);
     public static JuegoLOTR JuegoLotr;
     public static final String yellow = "\033[33m";
 
@@ -51,12 +48,12 @@ public class App {
             System.out.println("                                ");
             System.out.println("                                ");
             if(i == 1){
-                p1 = elegirOpcionPersonaje();
-                a1 = elegirOpcionArma();
+                p1 = JuegoLOTR.elegirOpcionPersonaje();
+                a1 = JuegoLOTR.elegirOpcionArma();
                 p1.agregarArma(a1);
             }else{
-                p2 = elegirOpcionPersonaje();
-                a2 = elegirOpcionArma();
+                p2 = JuegoLOTR.elegirOpcionPersonaje();
+                a2 = JuegoLOTR.elegirOpcionArma();
                 p2.agregarArma(a2);
             }
         }
@@ -65,49 +62,10 @@ public class App {
         System.out.println("Jugador 1: " + p1.toString());
         System.out.println("Jugador 2: " + p2.toString());
         System.out.println("                                ");
+      
        JuegoLOTR.iniciarBatalla(p1, p2, a1, a2);
 
        }
-
-    private static Arma elegirOpcionArma() {
-        System.out.println("Ingrese el numero del arma");
-        System.out.println("*********************");
-        System.out.println("1. Espada Sting");
-        System.out.println("2. Espada Anduril");
-        System.out.println("3. Hacha doble");
-        System.out.println("4. Arco y flecha");
-        System.out.println("5. Baculo");
-        System.out.println("*********************");
-
-        int arma = Teclado.nextInt();
-
-        Arma arm = JuegoLOTR.buscarArma(arma);
-
-        //System.out.println("Arma: " + arm.toString());
-
-        return arm;
-    }
-
-    private static Personaje elegirOpcionPersonaje() {
-        System.out.println("Ingrese el numero del Personaje");
-        System.out.println("*********************");
-        System.out.println("1. Aragorn");
-        System.out.println("2. Boromir");
-        System.out.println("3. Gandalf");
-        System.out.println("4. Frodo");
-        System.out.println("5. Legolas <3 ");
-        System.out.println("6. Orco");
-        System.out.println("7. Goblin");
-        System.out.println("8. Gimli");
-        System.out.println("9. Troll");
-        System.out.println("*********************");
-
-        int personaje = Teclado.nextInt();
-
-        Personaje p = JuegoLOTR.buscarPersonaje(personaje);
-
-        return p;
-    }
 
     public static JuegoLOTR inicializar() {
 

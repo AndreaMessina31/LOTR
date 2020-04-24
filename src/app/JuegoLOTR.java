@@ -3,18 +3,19 @@ package app;
 import java.util.ArrayList;
 
 import java.util.List;
+import java.util.Scanner;
 
 import app.arma.*;
 import app.reliquia.*;
 import app.personaje.*;
 
 public class JuegoLOTR {
-
+    public static Scanner Teclado = new Scanner(System.in);
     public static List<Arma> armas = new ArrayList<Arma>();
     public static List<Personaje> personajes = new ArrayList<Personaje>();
     public static final String blue = "\033[34m";
-    // public List<Reliquia> reliquias = new ArrayList<Reliquia>();
 
+    // Recorre lista de armas.
     public static Arma buscarArma(int num) {
         for (int i = 0; i < armas.size(); i++) {
             int posicionArma = i + 1;
@@ -26,6 +27,7 @@ public class JuegoLOTR {
         return null;
     }
 
+    // recorre lista de personajes.
     public static Personaje buscarPersonaje(int personaje) {
 
         for (int i = 0; i < personajes.size(); i++) {
@@ -37,49 +39,64 @@ public class JuegoLOTR {
         System.out.println("El numero que ingreso no es valido");
         return null;
     }
-    // TODO Preguntar al profe
+
+    // como detenemos el while para avisar que un personaje puede usar ataque epico
 
     public static void iniciarBatalla(Personaje p1, Personaje p2, Arma a1, Arma a2) {
 
         String color = blue;
 
+        // El juego sigue hasta que uno de los jugadores se queda sin vida.
         while (p1.estaVivo() && p2.estaVivo()) {
-            if(p1.estaVivo()){
-                System.out.println("");
-                System.out.println( color + "                                ");
-                System.out.println("ATACANDOOOOO P1");
-                p1.atacar(p2, a1);
-                System.out.println("                                ");
-                System.out.println("Atacando 1: "+ p1.getNombre());
-                System.out.println("Arma stamina " + a1.getStamina());
-                System.out.println("Pers stamina " + p1.getStamina());
+            if (p1.estaVivo()) {
+                if (p1.tieneStamina()) {
+                    System.out.println("ATACANDOOOOO P1");
+                    if (i != 0) {
+                        a1 = elegirOpcionArma();
+                        p1.atacar(p2, a1);
+                    }
 
-                System.out.println("                                ");
+                    System.out.println("Jugador 1: " + p1.toString());
+                    System.out.println("Jugador 2: " + p2.toString());
+                } else {
+                    System.out.println(p1.getNombre() + " No puedes atacar, te quedaste sin stamnina ");
+                }
 
-                System.out.println("Atacado 2: " + p2.getNombre());
-                System.out.println("Arma danio " + a1.getDanio());
-                System.out.println("Pers salud "  + p2.getSalud());
+            } else {
+                System.out.println(p1.getNombre() + " Estas muerto ! :c ");
             }
 
-            if(p2.estaVivo()){
-                System.out.println("                                ");
-                System.out.println("ATACANDOOOOO P2");
-                p2.atacar(p1, a2);
-                System.out.println("                                ");
-                System.out.println("Atacando 2: "+ p2.getNombre());
-                System.out.println("Arma stamina " + a2.getStamina());
-                System.out.println("Pers stamina " + p2.getStamina());
+            if (p2.estaVivo()) {
+                if (p2.tieneStamina()) {
+                    System.out.println("ATACANDOOOOO P2");
+                    if (i != 0) {
+                        a2 = elegirOpcionArma();
+                    }
+                    p2.atacar(p1, a2);
 
-                System.out.println("                                ");
+                    System.out.println("Jugador 1: " + p1.toString());
+                    System.out.println("Jugador 2: " + p2.toString());
+                } else {
+                    System.out.println(p2.getNombre() + " No puedes atacar, te quedaste sin stamnina ");
 
-                System.out.println( color + " Atacado 1: " + p1.getNombre());
-                System.out.println("Arma danio " + a2.getDanio());
-                System.out.println("Pers salud "  + p1.getSalud());
+                }
+            } else {
+                System.out.println(p2.getNombre() + " Estas muerto ! :c ");
             }
+            i++;
+
         }
-        System.out.println("                                ");
-        System.out.println("Batalla finalizada" + "jugador 1 " + p1.getNombre() + ": salud " + p1.getSalud() + "     jugador 2 " + p2.getNombre() + ": salud " + p2.getSalud());
-        if (p1.getSalud() <= 0) {
+
+        // elegir proxima arma
+        // puede usar ataque epico
+
+        // Resultado de la Batalla
+        System.out.println("Batalla finalizada salud de los jugadores " + "  "+p1.getNombre() +"  "+ p1.getSalud()
+                + "  " + p2.getNombre() + "  " +p2.getSalud());
+        System.out.println("Batalla finalizada  stamina de los jugadores " + "  " + p1.getNombre() + "  " + p1.getStamina()
+                + "  " + p2.getNombre() +"  " + p2.getStamina());
+
+        if (p1.estaVivo()) {
 
             System.out.println("El ganador es " + p2.getNombre());
 
@@ -89,14 +106,52 @@ public class JuegoLOTR {
 
     }
 
+    static Arma elegirOpcionArma() {
+        System.out.println("Ingrese el nombre del arma");
+        System.out.println("*********************");
+        System.out.println("1. Espada Sting");
+        System.out.println("2. Espada Anduril");
+        System.out.println("3. Hacha doble");
+        System.out.println("4. Arco y flecha");
+        System.out.println("5. Baculo");
+        System.out.println("*********************");
+
+        int arma = Teclado.nextInt();
+
+        Arma arm = buscarArma(arma);
+
+        return arm;
+    }
+
+    static Personaje elegirOpcionPersonaje() {
+        System.out.println("Ingrese el nombre del Personaje");
+        System.out.println("*********************");
+        System.out.println("1. Aragorn");
+        System.out.println("2. Boromir");
+        System.out.println("3. Gandalf");
+        System.out.println("4. Frodo");
+        System.out.println("5. Legolas <3 ");
+        System.out.println("6. Orco");
+        System.out.println("7. Goblin");
+        System.out.println("8. Gimli");
+        System.out.println("9. Troll");
+        System.out.println("*********************");
+
+        int personaje = Teclado.nextInt();
+
+        Personaje p = buscarPersonaje(personaje);
+
+        return p;
+    }
+
     public void inicializar() {
         // Arma
 
-        Sting sting = new Sting("Espada Sting", 40, 35);
+        Sting sting = new Sting("Espada Sting", 20, 35);
 
         Anduril anduril = new Anduril("Espada Anduril", 30, 30);
 
-        HachaDoble hacha = new HachaDoble("Hacha doble",35, 35);
+        HachaDoble hacha = new HachaDoble("Hacha doble", 35, 35);
 
         ArcoYFlecha arco = new ArcoYFlecha("Arco y flecha", 35, 20);
 
@@ -126,9 +181,9 @@ public class JuegoLOTR {
 
         // Personaje
 
-        Humano humano1 = new Humano("Aragorn", 100, 90, chalecoMithril);
+        Humano humano1 = new Humano("Aragorn", 100, 70, chalecoMithril);
 
-        Humano humano2 = new Humano("Boromir", 100, 90, anilloNenya);
+        Humano humano2 = new Humano("Boromir", 100, 400, anilloNenya);
 
         Wizard wizard = new Wizard("Gandalf", 100, 80, frascoGaladriel, 10);
 

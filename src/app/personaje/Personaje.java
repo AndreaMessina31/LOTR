@@ -23,15 +23,17 @@ public class Personaje {
         return salud > 0;
     }
 
+    public boolean tieneStamina() {
+        return stamina > 0 ;
+    }
+
     // Ataca a personaje "personajeAtacado", usando el arma "arma"
     public void atacar(Personaje personajeAtacado, Arma arma) {
-        //Si el personaje esta vivo y tiene stamina puede atacar.
-        if (this.getStamina() > 0 ){
             // Se le resta danio al personaje atacado y se le descuenta en "salud"
             personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
             //La stamina del arma  decrementa la stamina del personaje.
             this.setStamina(this.getStamina() - arma.getStamina());
-        }
+       
     }
 
     public void agregarArma(Arma arma){
