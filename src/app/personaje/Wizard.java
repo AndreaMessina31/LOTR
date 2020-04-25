@@ -23,6 +23,20 @@ public class Wizard extends Humano implements IHaceMagia {
     public int getEnergiaMagica() {
 
         return energiaMagica;
+
+    }
+
+    @Override
+    public void atacar(Personaje personajeAtacado, Arma arma) {
+
+        super.atacar(personajeAtacado, arma);
+        if (puedoEjecutarAtaqueEpico()){
+            personajeAtacado.setSalud(personajeAtacado.getSalud() - (int)(arma.getDanio() + arma.getDanio () *0.1));
+            this.setStamina(0);
+            this.setEnergiaMagica(0);
+            this.setEnergiaMagica(0);
+        System.out.println("ataque epicoooo");
+        }
     }
 
     @Override

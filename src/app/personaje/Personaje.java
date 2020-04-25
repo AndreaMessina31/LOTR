@@ -33,7 +33,7 @@ public class Personaje {
             personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
             //La stamina del arma  decrementa la stamina del personaje.
             this.setStamina(this.getStamina() - arma.getStamina());
-       
+        
     }
 
     public void agregarArma(Arma arma){

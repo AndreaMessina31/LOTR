@@ -13,11 +13,11 @@ public class AnilloPoder extends Reliquia implements IEsMagico {
 
     @Override
     public int getEnergiaMagica() {
-        return 0;
+        return energiaMagica;
     }
 
     @Override
     public void setEnergiamagica(int energiaMagica) {
-
+        this.energiaMagica = energiaMagica;
     }
 }

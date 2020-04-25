@@ -54,7 +54,7 @@ public class JuegoLOTR {
                     if (i != 0) {
                         a1 = elegirOpcionArma();
                         p1.atacar(p2, a1);
-                    }
+                    } 
 
                     System.out.println("Jugador 1: " + p1.toString());
                     System.out.println("Jugador 2: " + p2.toString());
@@ -151,18 +151,30 @@ public class JuegoLOTR {
         return p;
     }
 
+        
+    public void preguntarAtaqueEpico(Wizard w, Elfo e) {
+        
+        if(w.puedoEjecutarAtaqueEpico()|| e.puedoEjecutarAtaqueEpico()){
+
+        }
+        
+            System.out.println("¿Quieres ejecutar ataque epico ?");
+        
+    }
+
+
     public void inicializar() {
         // Arma
 
-        Sting sting = new Sting("Espada Sting", 20, 35);
+        Sting sting = new Sting("Espada Sting", 20, 35, 100);
 
-        Anduril anduril = new Anduril("Espada Anduril", 30, 30);
+        Anduril anduril = new Anduril("Espada Anduril", 30, 30, 100);
 
         HachaDoble hacha = new HachaDoble("Hacha doble", 35, 35);
 
         ArcoYFlecha arco = new ArcoYFlecha("Arco y flecha", 35, 20);
 
-        Baculo baculo = new Baculo("Baculo", 35, 25);
+        Baculo baculo = new Baculo("Baculo", 35, 25,100);
 
         armas.add(sting);
         armas.add(anduril);
@@ -172,7 +184,7 @@ public class JuegoLOTR {
 
         // Reliquia
 
-        FrascoGaladriel frascoGaladriel = new FrascoGaladriel("Gabriel", 10, 12, 0);
+        FrascoGaladriel frascoGaladriel = new FrascoGaladriel("Gabriel", 10, 12, 0 );
 
         ChalecoMithril chalecoMithril = new ChalecoMithril("LOL", 20, 23);
 

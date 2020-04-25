@@ -9,5 +9,5 @@ public interface ILlevaReliquia {
 
     // Pone una reliquia a un portador
     public void setReliquia(Reliquia reliquia);
-
+        
 }

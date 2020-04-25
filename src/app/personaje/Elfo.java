@@ -25,6 +25,20 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia {
     }
 
     @Override
+    public void atacar(Personaje personajeAtacado, Arma arma) {
+
+        super.atacar(personajeAtacado, arma);
+        if (puedoEjecutarAtaqueEpico()){
+            personajeAtacado.setSalud(personajeAtacado.getSalud() - (int)(arma.getDanio() + arma.getDanio () *0.1));
+            this.setEnergiaMagica(energiaMagica - 10);
+            this.setStamina(0);
+            this.setEnergiaMagica(0);
+            this.setEnergiaMagica(0);
+        System.out.println("ataque epicoooo");
+        }
+    }
+
+    @Override
     public int getEnergiaMagica() {
         return energiaMagica;
     }

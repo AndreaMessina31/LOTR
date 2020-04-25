@@ -26,6 +26,11 @@ public class Arma {
         return danio;
     }
 
+    
+    public int setDanio() {
+        return danio;
+    }
+
     @Override
     public String toString() {
         return "Arma{" +

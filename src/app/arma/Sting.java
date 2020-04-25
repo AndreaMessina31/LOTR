@@ -5,20 +5,22 @@ import app.IEsMagico;
 //No gasta energia.
 public class Sting extends Espada implements IEsMagico {
 
-    public Sting(String nombre, int danio, int stamina) {
+    private int energiaMagica;
+
+    public Sting(String nombre, int danio, int stamina, int energiaMagica) {
         super(nombre, danio, stamina);
-        // TODO Auto-generated constructor stub
+        
     }
 
     @Override
-    public int getEnergiaMagica() {
-        // TODO Auto-generated method stub
-        return 0;
+    public int getEnergiaMagica() { 
+        
+        return energiaMagica;
     }
 
     @Override
     public void setEnergiamagica(int energiaMagica) {
-        // TODO Auto-generated method stub
+        this.energiaMagica = energiaMagica;
 
     }
 
