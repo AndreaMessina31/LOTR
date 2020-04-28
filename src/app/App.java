@@ -35,35 +35,20 @@ public class App {
 
         JuegoLotr = inicializar();
 
-        Personaje p1 = null;
-        Personaje p2 = null;
+        Personaje p1;
+        Personaje p2;
 
-        Arma a1 = null;
-        Arma a2 = null;
-
-        for(int i = 1; i <= 2; i++){
-            System.out.println("                                ");
-            System.out.println("                                ");
-            System.out.println("Eleja jugador " + i);
-            System.out.println("                                ");
-            System.out.println("                                ");
-            if(i == 1){
-                p1 = JuegoLOTR.elegirOpcionPersonaje();
-                a1 = JuegoLOTR.elegirOpcionArma();
-                p1.agregarArma(a1);
-            }else{
-                p2 = JuegoLOTR.elegirOpcionPersonaje();
-                a2 = JuegoLOTR.elegirOpcionArma();
-                p2.agregarArma(a2);
-            }
-        }
+        p1 = JuegoLOTR.elegirOpcionPersonaje();
+        p2 = JuegoLOTR.elegirOpcionPersonaje();
 
         System.out.println("                                ");
         System.out.println("Jugador 1: " + p1.toString());
         System.out.println("Jugador 2: " + p2.toString());
         System.out.println("                                ");
+
+        System.out.println("Comenzando BATALLA!");
       
-       JuegoLOTR.iniciarBatalla(p1, p2, a1, a2);
+       JuegoLOTR.iniciarBatalla(p1, p2);
 
        }
 
@@ -76,11 +61,4 @@ public class App {
 
         return juego;
     }
-
-   // public static void preguntar(){
-     //   ataqueEpico= System.out
-   // }
-
-   
-
 }

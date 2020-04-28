@@ -9,6 +9,7 @@ import app.reliquia.Reliquia;
 
 import app.IHaceMagia;
 
+
 public class Wizard extends Humano implements IHaceMagia {
 
     // Posee la energía máx del mago (Max 100)
@@ -21,48 +22,31 @@ public class Wizard extends Humano implements IHaceMagia {
 
     @Override
     public int getEnergiaMagica() {
-
         return energiaMagica;
-
-    }
-
-    @Override
-    public void atacar(Personaje personajeAtacado, Arma arma) {
-
-        super.atacar(personajeAtacado, arma);
-        if (puedoEjecutarAtaqueEpico()){
-            personajeAtacado.setSalud(personajeAtacado.getSalud() - (int)(arma.getDanio() + arma.getDanio () *0.1));
-            this.setStamina(0);
-            this.setEnergiaMagica(0);
-            this.setEnergiaMagica(0);
-        System.out.println("ataque epicoooo");
-        }
     }
 
     @Override
     public void setEnergiaMagica(int energiaMagica) {
         this.energiaMagica = energiaMagica;
-
     }
 
     @Override
     public boolean puedoEjecutarAtaqueEpico() {
-        if (this.getStamina() < 10 && this.energiaMagica >= 5) {
-            return true;
-        } else {
-            return false;
-
-        }
+        return  this.getStamina() < 10 && this.getEnergiaMagica() >= 5;
     }
 
     @Override
     public void ataqueEpico(Personaje personaje, Arma arma) {
-        if (puedoEjecutarAtaqueEpico()) {
+            personaje.setSalud(personaje.getSalud() - (int)(arma.getDanio() + arma.getDanio() * 0.1));
             this.setStamina(0);
             this.setEnergiaMagica(0);
-
-        }
-
+            System.out.println("ataque epicoooo");
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "Wizard{" +
+                "energiaMagica=" + energiaMagica +
+                '}';
+    }
 }

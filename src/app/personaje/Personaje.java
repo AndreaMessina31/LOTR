@@ -1,6 +1,10 @@
 package app.personaje;
 
+import app.IEsMagico;
+import app.IHaceMagia;
+import app.ILlevaReliquia;
 import app.arma.Arma;
+import app.reliquia.Reliquia;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +33,45 @@ public class Personaje {
 
     // Ataca a personaje "personajeAtacado", usando el arma "arma"
     public void atacar(Personaje personajeAtacado, Arma arma) {
+
+        if(this instanceof ILlevaReliquia){
+            ILlevaReliquia personajeQueLlevaReliquia = (ILlevaReliquia) this;
+            Reliquia r = personajeQueLlevaReliquia.getReliquia();
+            System.out.println(" FACTOR ATAQUE ");
+            r.atacarConReliquia(arma);
+        }
+
+        if (personajeAtacado instanceof ILlevaReliquia) {
+            ILlevaReliquia atacado = (ILlevaReliquia) personajeAtacado;
+            Reliquia r = atacado.getReliquia();
+            System.out.println(" FACTOR DEFENSA ");
+            r.defensaReliquia(personajeAtacado);
+        }
+
+        //TODO mejorar los repetidos 55, 62 y 68
+
+        if (this instanceof IHaceMagia) {
+            IHaceMagia personajeQueHaceMagia = (IHaceMagia) this;
+            if(personajeQueHaceMagia.puedoEjecutarAtaqueEpico()){
+                personajeQueHaceMagia.ataqueEpico(personajeAtacado, arma);
+            }else {
+                // Se le resta danio al personaje atacado y se le descuenta en "salud"
+                personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
+                //La stamina del arma  decrementa la stamina del personaje.
+                this.setStamina(this.getStamina() - arma.getStamina());
+            }
+
+        }else {
             // Se le resta danio al personaje atacado y se le descuenta en "salud"
             personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
             //La stamina del arma  decrementa la stamina del personaje.
             this.setStamina(this.getStamina() - arma.getStamina());
-        
+        }
+
+        // Se le resta danio al personaje atacado y se le descuenta en "salud"
+        personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
+        //La stamina del arma  decrementa la stamina del personaje.
+        this.setStamina(this.getStamina() - arma.getStamina());
     }
 
     public void agregarArma(Arma arma){

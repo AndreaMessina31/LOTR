@@ -10,12 +10,10 @@ public class Baculo extends Arma implements IEsMagico {
 
     public Baculo(String nombre, int danio, int stamina, int energiaMagica) {
         super(nombre, danio, stamina);
-        
     }
 
     @Override
     public int getEnergiaMagica() {
-        
         return energiaMagica;
     }
 

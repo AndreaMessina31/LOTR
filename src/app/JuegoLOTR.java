@@ -42,19 +42,20 @@ public class JuegoLOTR {
 
     // como detenemos el while para avisar que un personaje puede usar ataque epico
 
-    public static void iniciarBatalla(Personaje p1, Personaje p2, Arma a1, Arma a2) {
-
-        String color = blue;
-        int i = 0;
+    public static void iniciarBatalla(Personaje p1, Personaje p2) {
         // El juego sigue hasta que uno de los jugadores se queda sin vida.
         while (p1.estaVivo() && p2.estaVivo()) {
             if (p1.estaVivo()) {
                 if (p1.tieneStamina()) {
+                    System.out.println("                    ");
                     System.out.println("ATACANDOOOOO P1");
-                    if (i != 0) {
-                        a1 = elegirOpcionArma();
+                    System.out.println("                    ");
+
+
+                    Arma a1 = elegirOpcionArma();
+                        p1.agregarArma(a1);
+
                         p1.atacar(p2, a1);
-                    } 
 
                     System.out.println("Jugador 1: " + p1.toString());
                     System.out.println("Jugador 2: " + p2.toString());
@@ -68,10 +69,13 @@ public class JuegoLOTR {
 
             if (p2.estaVivo()) {
                 if (p2.tieneStamina()) {
+                    System.out.println("                    ");
                     System.out.println("ATACANDOOOOO P2");
-                    if (i != 0) {
-                        a2 = elegirOpcionArma();
-                    }
+                    System.out.println("                    ");
+
+
+                    Arma a2 = elegirOpcionArma();
+                    p2.agregarArma(a2);
                     p2.atacar(p1, a2);
 
                     System.out.println("Jugador 1: " + p1.toString());
@@ -82,16 +86,7 @@ public class JuegoLOTR {
                 }
             } else {
                 System.out.println(p2.getNombre() + " estas muerto ! :c  ");
-                System.out.println("                                                                  \n" +
-                        "  __ _   __ _  _ __ ___    ___             ___  __   __  ___  _ __ \n" +
-                        " / _` | / _` || '_ ` _ \\  / _ \\           / _ \\ \\ \\ / / / _ \\| '__|\n" +
-                        "| (_| || (_| || | | | | ||  __/          | (_) | \\ V / |  __/| |   \n" +
-                        " \\__, | \\__,_||_| |_| |_| \\___|           \\___/   \\_/   \\___||_|   \n" +
-                        "  __/ |                                                            \n" +
-                        " |___/                                                   ");
             }
-            i++;
-
         }
 
         // elegir proxima arma
@@ -99,12 +94,11 @@ public class JuegoLOTR {
 
         // Resultado de la Batalla
         System.out.println("Batalla finalizada salud de los jugadores " + "  "+p1.getNombre() +"  "+ p1.getSalud()
-                + "  " + p2.getNombre() + "  " +p2.getSalud());
+                + "  " + p2.getNombre() + "  " + p2.getSalud());
         System.out.println("Batalla finalizada  stamina de los jugadores " + "  " + p1.getNombre() + "  " + p1.getStamina()
                 + "  " + p2.getNombre() +"  " + p2.getStamina());
 
         if (p1.estaVivo()) {
-
             System.out.println("El ganador es " + p2.getNombre());
 
         } else {
@@ -151,22 +145,10 @@ public class JuegoLOTR {
         return p;
     }
 
-        
-    public void preguntarAtaqueEpico(Wizard w, Elfo e) {
-        
-        if(w.puedoEjecutarAtaqueEpico()|| e.puedoEjecutarAtaqueEpico()){
-
-        }
-        
-            System.out.println("¿Quieres ejecutar ataque epico ?");
-        
-    }
-
-
     public void inicializar() {
         // Arma
 
-        Sting sting = new Sting("Espada Sting", 20, 35, 100);
+        Sting sting = new Sting("Espada Sting", 20, 40, 100);
 
         Anduril anduril = new Anduril("Espada Anduril", 30, 30, 100);
 
@@ -184,27 +166,27 @@ public class JuegoLOTR {
 
         // Reliquia
 
-        FrascoGaladriel frascoGaladriel = new FrascoGaladriel("Gabriel", 10, 12, 0 );
+        FrascoGaladriel frascoGaladriel = new FrascoGaladriel("Gabriel", 0.1, 0.2, 0 );
 
-        ChalecoMithril chalecoMithril = new ChalecoMithril("LOL", 20, 23);
+        ChalecoMithril chalecoMithril = new ChalecoMithril("LOL", 0.2, 0.2);
 
-        AnilloSauron anilloSauron = new AnilloSauron("Sauron", 30, 42, 8);
+        AnilloSauron anilloSauron = new AnilloSauron("Sauron", 0.05, 0.2, 8);
 
-        AnilloElfo anilloElfo = new AnilloElfo("Elfo", 20, 20, 5);
+        AnilloElfo anilloElfo = new AnilloElfo("Elfo", 0.2, 0.3, 5);
 
-        AnilloNarya anilloNarya = new AnilloNarya("Nerya", 22, 24, 4);
+        AnilloNarya anilloNarya = new AnilloNarya("Nerya", 0.2, 0.2, 4);
 
-        AnilloNenya anilloNenya = new AnilloNenya("Nenya", 22, 21, 6);
+        AnilloNenya anilloNenya = new AnilloNenya("Nenya", 0.3, 0.1, 6);
 
-        AnilloVilya anilloVilya = new AnilloVilya("Vilya", 20, 20, 9);
+        AnilloVilya anilloVilya = new AnilloVilya("Vilya", 0.1, 0.2, 9);
 
         // Personaje
 
-        Humano humano1 = new Humano("Aragorn", 100, 70, chalecoMithril);
+        Humano humano1 = new Humano("Aragorn", 100, 100, chalecoMithril);
 
-        Humano humano2 = new Humano("Boromir", 100, 400, anilloNenya);
+        Humano humano2 = new Humano("Boromir", 100, 100, anilloNenya);
 
-        Wizard wizard = new Wizard("Gandalf", 100, 80, frascoGaladriel, 10);
+        Wizard wizard = new Wizard("Gandalf", 100, 100, frascoGaladriel, 10);
 
         Hobbit hobbit = new Hobbit("Frodo", 100, 100, anilloSauron);
 

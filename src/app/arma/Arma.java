@@ -27,7 +27,7 @@ public class Arma {
     }
 
     
-    public int setDanio() {
+    public int setDanio(int i) {
         return danio;
     }
 

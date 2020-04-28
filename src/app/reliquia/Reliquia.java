@@ -8,19 +8,20 @@ public class Reliquia {
     public double  factorDeAtaque; // Numero que representa una forma de incremento de daño. De 0 a 1.
     public double factorDeDefensa; //Numero que representa una forma de decremento de daño recibido. 0 a 1
 
-    public Reliquia(Personaje salud  , Arma arma , String nombre, double factorDeAtaque, double factorDeDefensa) {
+    public Reliquia(String nombre, double factorDeAtaque, double factorDeDefensa) {
         this.nombre = nombre; 
-        this.factorDeAtaque = factorDeAtaque (arma.setDanio() + (arma.setDanio() * 0.1));
-		this.factorDeDefensa = factorDeDefensa (personaje.setSalud() + (personaje.setSalud()+ 0.1));
-        System.out.println( "El personaje tiene reliquia");
-        
-
-        //this.factorDeAtaque = factorDeAtaque p1.getArma()  x 0,05(danio);
-        //this.factorDeDefensa = factorDeDefensa p2.getArma()  (danio);
+        this.factorDeAtaque = factorDeAtaque;
+		this.factorDeDefensa = factorDeDefensa;
     }
 
+    public void atacarConReliquia(Arma arma){
+        //aumenta danio de arma con factor de ataque
+        arma.setDanio((int) (arma.getDanio() + arma.getDanio() * factorDeAtaque));
     }
 
+    public void defensaReliquia(Personaje personaje){
+        //la defensa ayuda a disminuir menos la salud
+        personaje.setSalud((int) (personaje.getSalud() + factorDeDefensa));
+    }
 
-//1 = 100 danio
-//0,5 = 50 danio
+}
