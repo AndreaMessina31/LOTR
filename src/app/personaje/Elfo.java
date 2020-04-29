@@ -1,9 +1,5 @@
 package app.personaje;
-
 import app.arma.Arma;
-
-import java.util.List;
-
 import app.IHaceMagia;
 import app.ILlevaReliquia;
 import app.reliquia.Reliquia;
@@ -26,15 +22,19 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia {
 
     @Override
     public void atacar(Personaje personajeAtacado, Arma arma) {
-
-        super.atacar(personajeAtacado, arma);
+       // super.atacar(personajeAtacado, arma);
         if (puedoEjecutarAtaqueEpico()){
             personajeAtacado.setSalud(personajeAtacado.getSalud() - (int)(arma.getDanio() + arma.getDanio () *0.1));
-            this.setEnergiaMagica(energiaMagica - 10);
             this.setStamina(0);
             this.setEnergiaMagica(0);
-            this.setEnergiaMagica(0);
         System.out.println("ataque epicoooo");
+        }else{
+         //   // Se le resta danio al personaje atacado y se le descuenta en "salud"
+            personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
+            //La stamina del arma  decrementa la stamina del personaje.
+            this.setStamina(this.getStamina() - arma.getStamina());
+            this.setEnergiaMagica(this.getEnergiaMagica() - energiaMagica);
+
         }
     }
 
@@ -52,7 +52,7 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia {
     public boolean puedoEjecutarAtaqueEpico() {
 
         // return this.getStamina() < 10 && this.energiaMagica >= 20
-        if (this.getStamina() < 10 && this.energiaMagica >= 20) {
+        if (this.getStamina() < 31 && this.energiaMagica >= 20) {
             return true;
         } else {
             return false;

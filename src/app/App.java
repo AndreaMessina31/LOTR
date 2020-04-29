@@ -49,12 +49,12 @@ public class App {
             System.out.println("                                ");
             if(i == 1){
                 p1 = JuegoLOTR.elegirOpcionPersonaje();
-                a1 = JuegoLOTR.elegirOpcionArma();
-                p1.agregarArma(a1);
+              // a1 = JuegoLOTR.elegirOpcionArma();
+                //p1.agregarArma(a1);
             }else{
                 p2 = JuegoLOTR.elegirOpcionPersonaje();
-                a2 = JuegoLOTR.elegirOpcionArma();
-                p2.agregarArma(a2);
+               // a2 = JuegoLOTR.elegirOpcionArma();
+                //p2.agregarArma(a2);
             }
         }
 

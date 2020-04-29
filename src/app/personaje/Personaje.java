@@ -1,6 +1,6 @@
 package app.personaje;
-
 import app.arma.Arma;
+import app.reliquia.Reliquia;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +67,13 @@ public class Personaje {
                 ", salud=" + salud +
                 ", stamina=" + stamina +
                 ", armas=" + armas +
+               
+
+
                 '}';
     }
+
+	public double setSalud() {
+		return 0;
+	}
 }

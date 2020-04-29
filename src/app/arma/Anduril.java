@@ -6,23 +6,27 @@ import app.arma.Espada;
 //No gasta energia.
 public class Anduril extends Espada implements IEsMagico  {
 
-    private int energiaMagica;
+    public int getEnergiaMagica(){
+        int danioMagia = - 10;
+        return danioMagia;
+
+    } //Devuelve la energía mágica a reducir cuando el portador ataca
+                                // Y hace magia o cuando recibe un daño y hace magia
+
+public void setEnergiamagica(int energiaMagica){
+
+    energiaMagica = 100 ; // pone una energia magica.
+
+} 
+
+
 
     public Anduril(String nombre, int danio, int stamina, int energiaMagica) {
         super(nombre, danio, stamina);
-        
+        this.setEnergiamagica(energiaMagica);
     }
 
-    @Override
-    public int getEnergiaMagica() {
-        
-        return energiaMagica;
-    }
-
-    @Override
-    public void setEnergiamagica(int energiaMagica) {
-        this.energiaMagica = energiaMagica;
+  
 
     }
 
-}

@@ -42,10 +42,10 @@ public class JuegoLOTR {
 
     // como detenemos el while para avisar que un personaje puede usar ataque epico
 
-    public static void iniciarBatalla(Personaje p1, Personaje p2, Arma a1, Arma a2) {
+    public static void iniciarBatalla(Personaje p1, Personaje p2, Arma a1, Arma a2  ) {
 
         String color = blue;
-        int i = 0;
+        int i = 1;
         // El juego sigue hasta que uno de los jugadores se queda sin vida.
         while (p1.estaVivo() && p2.estaVivo()) {
             if (p1.estaVivo()) {
@@ -53,12 +53,14 @@ public class JuegoLOTR {
                     System.out.println("ATACANDOOOOO P1");
                     if (i != 0) {
                         a1 = elegirOpcionArma();
+                      //  a1 = JuegoLOTR.elegirOpcionArma();
+                        // p1.agregarArma(a1);
                         p1.atacar(p2, a1);
                     } 
 
-                    System.out.println("Jugador 1: " + p1.toString());
-                    System.out.println("Jugador 2: " + p2.toString());
-                } else {
+                    System.out.println("Jugador 1: " + p1.toString()  );
+                    System.out.println("Jugador 2: " + p2.toString()  );
+                } else{
                     System.out.println(p1.getNombre() + " No puedes atacar, te quedaste sin stamnina ");
                 }
 
@@ -71,11 +73,13 @@ public class JuegoLOTR {
                     System.out.println("ATACANDOOOOO P2");
                     if (i != 0) {
                         a2 = elegirOpcionArma();
+                      //  a2 = JuegoLOTR.elegirOpcionArma();
+                        //p2.agregarArma(a2);
                     }
                     p2.atacar(p1, a2);
 
                     System.out.println("Jugador 1: " + p1.toString());
-                    System.out.println("Jugador 2: " + p2.toString());
+                    System.out.println("Jugador 2: " + p2.toString() );
                 } else {
                     System.out.println(p2.getNombre() + " no puedes atacar, te quedaste sin stamnina ");
 
@@ -105,10 +109,10 @@ public class JuegoLOTR {
 
         if (p1.estaVivo()) {
 
-            System.out.println("El ganador es " + p2.getNombre());
+            System.out.println("El ganador es " + p1.getNombre());
 
         } else {
-            System.out.println("El ganador es " + p1.getNombre());
+            System.out.println("El ganador es " + p2.getNombre());
         }
 
     }
@@ -152,29 +156,28 @@ public class JuegoLOTR {
     }
 
         
-    public void preguntarAtaqueEpico(Wizard w, Elfo e) {
+  //  public void preguntarAtaqueEpico(Wizard w, Elfo e) {
         
-        if(w.puedoEjecutarAtaqueEpico()|| e.puedoEjecutarAtaqueEpico()){
+  //      if(w.puedoEjecutarAtaqueEpico()|| e.puedoEjecutarAtaqueEpico()){
 
-        }
+    //   }
         
-            System.out.println("¿Quieres ejecutar ataque epico ?");
-        
-    }
+   //         System.out.println("¿Quieres ejecutar ataque epico ?");
+
 
 
     public void inicializar() {
         // Arma
 
-        Sting sting = new Sting("Espada Sting", 20, 35, 100);
+        Sting sting = new Sting("Espada Sting", 20, 21, 10);
 
-        Anduril anduril = new Anduril("Espada Anduril", 30, 30, 100);
+        Anduril anduril = new Anduril("Espada Anduril", 30, 11, 10);
 
-        HachaDoble hacha = new HachaDoble("Hacha doble", 35, 35);
+        HachaDoble hacha = new HachaDoble("Hacha doble", 35, 11);
 
-        ArcoYFlecha arco = new ArcoYFlecha("Arco y flecha", 35, 20);
+        ArcoYFlecha arco = new ArcoYFlecha("Arco y flecha", 11, 20);
 
-        Baculo baculo = new Baculo("Baculo", 35, 25,100);
+        Baculo baculo = new Baculo("Baculo", 35, 15,10);
 
         armas.add(sting);
         armas.add(anduril);
@@ -204,11 +207,12 @@ public class JuegoLOTR {
 
         Humano humano2 = new Humano("Boromir", 100, 400, anilloNenya);
 
-        Wizard wizard = new Wizard("Gandalf", 100, 80, frascoGaladriel, 10);
+        Wizard wizard = new Wizard("Gandalf", 100, 80, frascoGaladriel, 100);
 
         Hobbit hobbit = new Hobbit("Frodo", 100, 100, anilloSauron);
 
-        Elfo elfo = new Elfo("Legolas <3 ", 100, 100, anilloElfo, 30);
+        Elfo elfo = new Elfo("Legolas <3 ", 100, 100, anilloElfo, 100);
+
 
         Orco orco = new Orco("Orco", 100, 100);
 
@@ -230,4 +234,6 @@ public class JuegoLOTR {
 
     }
 
-}
+	}
+
+
