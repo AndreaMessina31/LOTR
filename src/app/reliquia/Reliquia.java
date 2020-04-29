@@ -14,14 +14,12 @@ public class Reliquia {
 		this.factorDeDefensa = factorDeDefensa;
     }
 
-    public void atacarConReliquia(Arma arma){
-        //aumenta danio de arma con factor de ataque
-        arma.setDanio((int) (arma.getDanio() + arma.getDanio() * factorDeAtaque));
+    public double getFactorDeAtaque() {
+        return factorDeAtaque;
     }
 
-    public void defensaReliquia(Personaje personaje){
-        //la defensa ayuda a disminuir menos la salud
-        personaje.setSalud((int) (personaje.getSalud() + factorDeDefensa));
+    public double getFactorDeDefensa() {
+        return factorDeDefensa;
     }
 
     public String getNombre() {

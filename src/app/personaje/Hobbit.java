@@ -10,7 +10,7 @@ public class Hobbit extends Criatura implements ILlevaReliquia {
 
     public Hobbit(String nombre, int salud, int stamina, Reliquia reliquia) {
         super(nombre, salud, stamina);
-        
+        this.reliquia = reliquia;
     }
 
     @Override
@@ -25,7 +25,7 @@ public class Hobbit extends Criatura implements ILlevaReliquia {
 
     @Override
     public String toString() {
-        return super.toString() + "Hobbit{" +
+        return super.toString() + "Hobbit{ " +
                 "reliquia=" + reliquia.getNombre() +
                 '}';
     }

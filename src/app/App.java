@@ -35,6 +35,10 @@ public class App {
 
         JuegoLotr = inicializar();
 
+        for (Personaje p : JuegoLOTR.personajes) {
+            System.out.println(p);
+        }
+
         Personaje p1;
         Personaje p2;
 

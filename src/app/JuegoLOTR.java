@@ -176,19 +176,19 @@ public class JuegoLOTR {
 
         // Reliquia
 
-        FrascoGaladriel frascoGaladriel = new FrascoGaladriel("Gabriel", 0.1, 0.2, 10);
+        FrascoGaladriel frascoGaladriel = new FrascoGaladriel("Frasco Gabriel", 0.1, 0.2, 10);
 
         ChalecoMithril chalecoMithril = new ChalecoMithril("Chaleco Mithril", 0.2, 0.2);
 
-        AnilloSauron anilloSauron = new AnilloSauron("Sauron", 0.05, 0.2, 10);
+        AnilloSauron anilloSauron = new AnilloSauron("Anillo Sauron", 0.05, 0.2, 10);
 
-        AnilloElfo anilloElfo = new AnilloElfo("Elfo", 0.2, 0.3, 15);
+        AnilloElfo anilloElfo = new AnilloElfo("Anillo Elfo", 0.2, 0.3, 15);
 
-        AnilloNarya anilloNarya = new AnilloNarya("Nerya", 0.2, 0.2, 20);
+        AnilloNarya anilloNarya = new AnilloNarya("Anillo Nerya", 0.2, 0.2, 20);
 
-        AnilloNenya anilloNenya = new AnilloNenya("Nenya", 0.3, 0.1, 10);
+        AnilloNenya anilloNenya = new AnilloNenya("Anillo Nenya", 0.3, 0.1, 10);
 
-        AnilloVilya anilloVilya = new AnilloVilya("Vilya", 0.1, 0.2, 5);
+        AnilloVilya anilloVilya = new AnilloVilya("Anillo Vilya", 0.1, 0.2, 5);
 
         // Personaje
 
