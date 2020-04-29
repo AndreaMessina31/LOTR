@@ -24,4 +24,7 @@ public class Reliquia {
         personaje.setSalud((int) (personaje.getSalud() + factorDeDefensa));
     }
 
+    public String getNombre() {
+        return nombre;
+    }
 }

@@ -22,4 +22,11 @@ public class Hobbit extends Criatura implements ILlevaReliquia {
     public void setReliquia(Reliquia reliquia) {
         this.reliquia = reliquia;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Hobbit{" +
+                "reliquia=" + reliquia.getNombre() +
+                '}';
+    }
 }

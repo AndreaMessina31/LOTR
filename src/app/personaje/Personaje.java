@@ -48,8 +48,11 @@ public class Personaje {
             r.defensaReliquia(personajeAtacado);
         }
 
-        //TODO mejorar los repetidos 55, 62 y 68
+        //atacarConMagia(personajeAtacado, arma);
 
+    }
+
+    public void atacarConMagia(Personaje personajeAtacado, Arma arma) {
         if (this instanceof IHaceMagia) {
             IHaceMagia personajeQueHaceMagia = (IHaceMagia) this;
             if(personajeQueHaceMagia.puedoEjecutarAtaqueEpico()){
@@ -59,19 +62,14 @@ public class Personaje {
                 personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
                 //La stamina del arma  decrementa la stamina del personaje.
                 this.setStamina(this.getStamina() - arma.getStamina());
+                personajeQueHaceMagia.setEnergiaMagica(personajeQueHaceMagia.getEnergiaMagica() - 10);
             }
-
         }else {
             // Se le resta danio al personaje atacado y se le descuenta en "salud"
             personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
             //La stamina del arma  decrementa la stamina del personaje.
             this.setStamina(this.getStamina() - arma.getStamina());
         }
-
-        // Se le resta danio al personaje atacado y se le descuenta en "salud"
-        personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
-        //La stamina del arma  decrementa la stamina del personaje.
-        this.setStamina(this.getStamina() - arma.getStamina());
     }
 
     public void agregarArma(Arma arma){

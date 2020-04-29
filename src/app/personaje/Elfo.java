@@ -50,4 +50,11 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia  {
         this.setEnergiaMagica(0);
         System.out.println("ataque epicoooo");
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Elfo{" +
+                "energiaMagica=" + energiaMagica +
+                '}';
+    }
 }

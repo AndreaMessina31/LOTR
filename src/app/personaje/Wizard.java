@@ -34,6 +34,7 @@ int atacc;
 
     @Override
     public boolean puedoEjecutarAtaqueEpico() {
+<<<<<<< HEAD
 
         //if (this.getStamina() < 10 && this.energiaMagica >= 5) {
             return this.getStamina() < 30;
@@ -41,6 +42,10 @@ int atacc;
 
         
     
+=======
+        return  this.getStamina() < 30 && this.getEnergiaMagica() >= 5;
+    }
+>>>>>>> 6cacde3a539459ea34bb4ee881502afa3bfb66d3
 
     @Override
             System.out.println("ataque epicoooo");
@@ -49,6 +54,7 @@ int atacc;
     @Override
         return super.toString() + "Wizard{" +
                 "energiaMagica=" + energiaMagica +
+                ", reliquia=" + reliquia +
                 '}';
     }
 }
