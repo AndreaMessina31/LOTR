@@ -13,6 +13,8 @@ public class JuegoLOTR {
     public static Scanner Teclado = new Scanner(System.in);
     public static List<Arma> armas = new ArrayList<Arma>();
     public static List<Personaje> personajes = new ArrayList<Personaje>();
+    private List<Reliquia> reliquias = new ArrayList<Reliquia>();
+
     public static final String blue = "\033[34m";
 
     // Recorre lista de armas.
@@ -54,6 +56,7 @@ public class JuegoLOTR {
     // como detenemos el while para avisar que un personaje puede usar ataque epico
 
     public static void iniciarBatalla(Personaje p1, Personaje p2) {
+    
         // El juego sigue hasta que uno de los jugadores se queda sin vida.
         while (p1.estaVivo() && p2.estaVivo()) {
             if (p1.estaVivo()) {
@@ -176,7 +179,7 @@ public class JuegoLOTR {
 
         // Reliquia
 
-        FrascoGaladriel frascoGaladriel = new FrascoGaladriel("Gabriel", 0.1, 0.2, 10);
+        FrascoGaladriel frascoGaladriel = new FrascoGaladriel("Frasco Galadriel", 0.1, 0.2, 10);
 
         ChalecoMithril chalecoMithril = new ChalecoMithril("Chaleco Mithril", 0.2, 0.2);
 

@@ -10,51 +10,69 @@ import app.reliquia.Reliquia;
 import app.IHaceMagia;
 import app.ILlevaReliquia;
 
-
 public class Wizard extends Humano implements IHaceMagia {
 
-   
-    // Posee la energía máx del mago (Max 100)
-    public int energiaMagica;
+  // Posee la energía máx del mago (Max 100)
+  public int energiaMagica;
 
+  public Wizard(String nombre, int salud, int stamina, Reliquia reliquia, int energiaMagica) {
+    super(nombre, salud, stamina, reliquia);
+    this.energiaMagica = energiaMagica;
 
-    public Wizard(String nombre, int salud, int stamina, Reliquia reliquia, int energiaMagica) {
-        super(nombre, salud, stamina, reliquia);
-        this.energiaMagica = energiaMagica;
+  }
+
+  @Override
+  public boolean puedoEjecutarAtaqueEpico() {
+    // && this.getEnergiaMagica() >= 5
+    return this.getStamina() < 40;
+  }
+
+  @Override
+  public int getEnergiaMagica() {
+    return 0;
+  }
+
+  @Override
+  public void setEnergiaMagica(int energiaMagica) {
+
+  }
+
+  @Override
+  public void ataqueEpico(Personaje personajeAtacado, Arma arma) {
+    if (puedoEjecutarAtaqueEpico()) {
+      personajeAtacado.setSalud(personajeAtacado.getSalud() - (int) (arma.getDanio() + arma.getDanio() * 0.1));
+      this.setStamina(0);
+      this.setEnergiaMagica(0);
+      System.out.println("ataque epicoooo <3 <3 <3 ");
+      System.out.println("ataque epicoooo <3 <3 <3 ");
+
+    } else {
+      // Se le resta danio al personaje atacado y se le descuenta en "salud"
+     personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
+      // La stamina del arma decrementa la stamina del personaje.
+      this.setStamina(this.getStamina() - arma.getStamina());
     }
+  }
 
-int atacc;
 
-    @Override
-    }
-
-    @Override
-        this.energiaMagica = energiaMagica;
-    }
-
-    @Override
-    public boolean puedoEjecutarAtaqueEpico() {
-<<<<<<< HEAD
-
-        //if (this.getStamina() < 10 && this.energiaMagica >= 5) {
-            return this.getStamina() < 30;
-        }
-
-        
-    
-=======
-        return  this.getStamina() < 30 && this.getEnergiaMagica() >= 5;
-    }
->>>>>>> 6cacde3a539459ea34bb4ee881502afa3bfb66d3
-
-    @Override
-            System.out.println("ataque epicoooo");
-    }
-
-    @Override
-        return super.toString() + "Wizard{" +
-                "energiaMagica=" + energiaMagica +
-                ", reliquia=" + reliquia +
-                '}';
-    }
+  
 }
+// @Override
+// public void ataqueEpico(Personaje personaje, Arma arma) {
+// personaje.setSalud(personaje.getSalud() - (int)(arma.getDanio() +
+// arma.getDanio() * 0.1));
+// this.setStamina(0);
+// this.setEnergiaMagica(0);
+// System.out.println("ataque epicoooo");
+// }
+
+// @Override
+// System.out.println("ataque epicoooo");
+// }
+
+// @Override
+// return super.toString() + "Wizard{" +
+// "energiaMagica=" + energiaMagica +
+// ", reliquia=" + reliquia +
+// '}';
+// }

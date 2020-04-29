@@ -1,5 +1,6 @@
 package app.arma;
 
+import app.personaje.Personaje;
 
 public class Arma {
     public String nombre;
@@ -22,7 +23,7 @@ public class Arma {
     return stamina;
     }
 
-    public int getDanio() {
+    public int getDanio() { 
         return danio;
     }
 
@@ -36,7 +37,7 @@ public class Arma {
         return "Arma{" +
                 "nombre='" + nombre + '\'' +
                 ", danio=" + danio +
-                ", stamina=" + stamina +
+                ", staminaaaaaaaaaaaaaaaa=" + stamina +
                 '}';
     }
 
