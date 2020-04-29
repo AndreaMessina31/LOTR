@@ -17,8 +17,4 @@ public interface IHaceMagia {
     // Ejecuta un ataque epico
     public void ataqueEpico(Personaje personaje, Arma arma);
 
-
-
-
-
 }

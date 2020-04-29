@@ -9,10 +9,9 @@ public class Humano extends Personaje implements ILlevaReliquia {
 
     public Humano(String nombre, int salud, int stamina, Reliquia reliquia) {
         super(nombre, salud, stamina);
-        this.reliquia= reliquia;
+        this.reliquia = reliquia;
     }
-        
-    
+
     @Override
     public Reliquia getReliquia() {
         return reliquia;
@@ -22,4 +21,6 @@ public class Humano extends Personaje implements ILlevaReliquia {
     public void setReliquia(Reliquia reliquia) {
         this.reliquia = reliquia;
     }
+
+
 }
