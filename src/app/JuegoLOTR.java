@@ -40,6 +40,17 @@ public class JuegoLOTR {
         return null;
     }
 
+    //TODO - validar numero
+
+    /*public boolean validar(int personaje) {
+        if (personaje == i) {
+            return true;
+        } else {
+            System.out.println("Valor no permitido, volver a ingresar");
+            return false;
+        }
+    }*/
+
     // como detenemos el while para avisar que un personaje puede usar ataque epico
 
     public static void iniciarBatalla(Personaje p1, Personaje p2) {
@@ -51,11 +62,10 @@ public class JuegoLOTR {
                     System.out.println("ATACANDOOOOO P1");
                     System.out.println("                    ");
 
-
                     Arma a1 = elegirOpcionArma();
-                        p1.agregarArma(a1);
+                    p1.agregarArma(a1);
 
-                        p1.atacar(p2, a1);
+                    p1.atacar(p2, a1);
 
                     System.out.println("Jugador 1: " + p1.toString());
                     System.out.println("Jugador 2: " + p2.toString());
@@ -99,10 +109,10 @@ public class JuegoLOTR {
                 + "  " + p2.getNombre() +"  " + p2.getStamina());
 
         if (p1.estaVivo()) {
-            System.out.println("El ganador es " + p2.getNombre());
+            System.out.println("El ganador es " + p1.getNombre());
 
         } else {
-            System.out.println("El ganador es " + p1.getNombre());
+            System.out.println("El ganador es " + p2.getNombre());
         }
 
     }
@@ -148,15 +158,15 @@ public class JuegoLOTR {
     public void inicializar() {
         // Arma
 
-        Sting sting = new Sting("Espada Sting", 20, 40, 100);
+        Sting sting = new Sting("Espada Sting", 10, 10, 10);
 
-        Anduril anduril = new Anduril("Espada Anduril", 30, 30, 100);
+        Anduril anduril = new Anduril("Espada Anduril", 15, 16, 15);
 
-        HachaDoble hacha = new HachaDoble("Hacha doble", 35, 35);
+        HachaDoble hacha = new HachaDoble("Hacha doble", 10, 11);
 
-        ArcoYFlecha arco = new ArcoYFlecha("Arco y flecha", 35, 20);
+        ArcoYFlecha arco = new ArcoYFlecha("Arco y flecha", 5, 6);
 
-        Baculo baculo = new Baculo("Baculo", 35, 25,100);
+        Baculo baculo = new Baculo("Baculo", 20, 20,20);
 
         armas.add(sting);
         armas.add(anduril);
@@ -166,19 +176,19 @@ public class JuegoLOTR {
 
         // Reliquia
 
-        FrascoGaladriel frascoGaladriel = new FrascoGaladriel("Gabriel", 0.1, 0.2, 0 );
+        FrascoGaladriel frascoGaladriel = new FrascoGaladriel("Gabriel", 0.1, 0.2, 10);
 
-        ChalecoMithril chalecoMithril = new ChalecoMithril("LOL", 0.2, 0.2);
+        ChalecoMithril chalecoMithril = new ChalecoMithril("Chaleco Mithril", 0.2, 0.2);
 
-        AnilloSauron anilloSauron = new AnilloSauron("Sauron", 0.05, 0.2, 8);
+        AnilloSauron anilloSauron = new AnilloSauron("Sauron", 0.05, 0.2, 10);
 
-        AnilloElfo anilloElfo = new AnilloElfo("Elfo", 0.2, 0.3, 5);
+        AnilloElfo anilloElfo = new AnilloElfo("Elfo", 0.2, 0.3, 15);
 
-        AnilloNarya anilloNarya = new AnilloNarya("Nerya", 0.2, 0.2, 4);
+        AnilloNarya anilloNarya = new AnilloNarya("Nerya", 0.2, 0.2, 20);
 
-        AnilloNenya anilloNenya = new AnilloNenya("Nenya", 0.3, 0.1, 6);
+        AnilloNenya anilloNenya = new AnilloNenya("Nenya", 0.3, 0.1, 10);
 
-        AnilloVilya anilloVilya = new AnilloVilya("Vilya", 0.1, 0.2, 9);
+        AnilloVilya anilloVilya = new AnilloVilya("Vilya", 0.1, 0.2, 5);
 
         // Personaje
 
@@ -186,11 +196,11 @@ public class JuegoLOTR {
 
         Humano humano2 = new Humano("Boromir", 100, 100, anilloNenya);
 
-        Wizard wizard = new Wizard("Gandalf", 100, 100, frascoGaladriel, 10);
+        Wizard wizard = new Wizard("Gandalf", 100, 100, frascoGaladriel, 100);
 
         Hobbit hobbit = new Hobbit("Frodo", 100, 100, anilloSauron);
 
-        Elfo elfo = new Elfo("Legolas <3 ", 100, 100, anilloElfo, 30);
+        Elfo elfo = new Elfo("Legolas <3 ", 100, 100, anilloElfo, 100);
 
         Orco orco = new Orco("Orco", 100, 100);
 

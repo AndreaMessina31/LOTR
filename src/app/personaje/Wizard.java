@@ -32,7 +32,7 @@ public class Wizard extends Humano implements IHaceMagia {
 
     @Override
     public boolean puedoEjecutarAtaqueEpico() {
-        return  this.getStamina() < 10 && this.getEnergiaMagica() >= 5;
+        return  this.getStamina() < 30 && this.getEnergiaMagica() >= 5;
     }
 
     @Override
@@ -47,6 +47,7 @@ public class Wizard extends Humano implements IHaceMagia {
     public String toString() {
         return super.toString() + "Wizard{" +
                 "energiaMagica=" + energiaMagica +
+                ", reliquia=" + reliquia +
                 '}';
     }
 }

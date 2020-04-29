@@ -6,4 +6,8 @@ public class Criatura extends Personaje {
         super(nombre, salud, stamina);
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "Criatura{}";
+    }
 }
