@@ -1,24 +1,21 @@
 package app.reliquia;
 
-import app.arma.Arma;
-import app.personaje.Personaje;
-
 public class Reliquia {
-    public String  nombre; // Nombre de la reliquia.
-    public double  factorDeAtaque; // Numero que representa una forma de incremento de daño. De 0 a 1.
-    public double factorDeDefensa; //Numero que representa una forma de decremento de daño recibido. 0 a 1
+    public String  nombre;
+    public int  factorDeAtaque;
+    public int factorDeDefensa;
 
-    public Reliquia(String nombre, double factorDeAtaque, double factorDeDefensa) {
+    public Reliquia(String nombre, int factorDeAtaque, int factorDeDefensa) {
         this.nombre = nombre; 
-        this.factorDeAtaque = factorDeAtaque;
-		this.factorDeDefensa = factorDeDefensa;
+        this.factorDeAtaque  = factorDeAtaque;
+		this.factorDeDefensa  = factorDeDefensa;
     }
 
-    public double getFactorDeAtaque() {
+    public int getFactorDeAtaque() {
         return factorDeAtaque;
     }
 
-    public double getFactorDeDefensa() {
+    public int getFactorDeDefensa() {
         return factorDeDefensa;
     }
 
@@ -26,3 +23,7 @@ public class Reliquia {
         return nombre;
     }
 }
+
+
+
+

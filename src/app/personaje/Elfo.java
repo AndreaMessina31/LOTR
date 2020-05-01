@@ -1,17 +1,12 @@
 package app.personaje;
-
 import app.arma.Arma;
-
 import app.IHaceMagia;
 import app.ILlevaReliquia;
 import app.reliquia.Reliquia;
 
-//IHaceMagia:El Wizard puede hacer magia por lo cual debe implementar
-//esta interface. Sólo puede atacar epicamente si tiene menos de 10
-//de stamina y al menos 20 de enrgia magica
 public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia  {
-    // Posee la enregía mágica del Elfo (max 100)
-    public int energiaMagica;
+    
+    public int energiaMagica; // Posee la enregía mágica del Elfo (max 100)
     public Reliquia reliquia;// Reliquia que porta el Elfo
 
     public Elfo(String nombre, int salud, int stamina, Reliquia reliquia, int energiaMagica) {
@@ -21,8 +16,16 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia  {
     }
 
     @Override
-    public int getEnergiaMagica() {
-        return energiaMagica;
+    public boolean puedoEjecutarAtaqueEpico() {
+        return  this.getStamina() < 10 && this.getEnergiaMagica() >= 20;
+    }
+
+    @Override
+    public void ataqueEpico(Personaje personaje, Arma arma) {
+        personaje.setSalud(personaje.getSalud() - (int)(arma.getDanio() + arma.getDanio() * 1.2));
+        this.setStamina(0);
+        this.setEnergiaMagica(0);
+        System.out.println("ataque epicoooo");
     }
 
     @Override
@@ -31,8 +34,8 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia  {
     }
 
     @Override
-    public boolean puedoEjecutarAtaqueEpico() {
-        return this.getStamina() < 10 && this.getEnergiaMagica() >= 20;
+    public int getEnergiaMagica() {
+        return energiaMagica;
     }
 
     @Override
@@ -43,14 +46,6 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia  {
     @Override
     public void setReliquia(Reliquia reliquia) {
         this.reliquia = reliquia;
-    }
-
-    @Override
-    public void ataqueEpico(Personaje personaje, Arma arma) {
-        personaje.setSalud(personaje.getSalud() - (int)(arma.getDanio() + arma.getDanio() * 1.2));
-        this.setStamina(0);
-        this.setEnergiaMagica(0);
-        System.out.println("ataque epicoooo");
     }
 
     @Override

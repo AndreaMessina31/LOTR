@@ -1,12 +1,11 @@
 package app.reliquia;
 
 import app.IEsMagico;
-import app.reliquia.Reliquia;
 
 public class FrascoGaladriel extends Reliquia implements IEsMagico {
-    private int energiaMagica; //Valor de la energía que gasta al personaje si ataca o es atacado
+    private int energiaMagica;
 
-    public FrascoGaladriel(String nombre, double factorDeAtaque, double factorDeDefensa, int energiaMagica) {
+    public FrascoGaladriel(String nombre, int factorDeAtaque, int factorDeDefensa, int energiaMagica) {
         super(nombre, factorDeAtaque, factorDeDefensa);
         this.energiaMagica = energiaMagica;
     }

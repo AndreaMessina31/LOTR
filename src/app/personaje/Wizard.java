@@ -1,14 +1,9 @@
 package app.personaje;
 
-//IHaceMagia:El Wizard puede hacer magiapor lo cual debe implementar
-//esta interface. Sólo puede atacar epicamente si tiene menios de 10
-//de stamina y al menos 5 de enrgia magica
-
 import app.arma.Arma;
 import app.reliquia.Reliquia;
 
 import app.IHaceMagia;
-
 
 public class Wizard extends Humano implements IHaceMagia {
 
@@ -18,6 +13,19 @@ public class Wizard extends Humano implements IHaceMagia {
     public Wizard(String nombre, int salud, int stamina, Reliquia reliquia, int energiaMagica) {
         super(nombre, salud, stamina, reliquia);
         this.energiaMagica = energiaMagica;
+    }
+
+    @Override
+    public boolean puedoEjecutarAtaqueEpico() {
+        return  this.getStamina() < 10 && this.getEnergiaMagica() >= 5;
+    }
+
+    @Override
+    public void ataqueEpico(Personaje personaje, Arma arma) {
+            personaje.setSalud((int) (personaje.getSalud() - (int)(arma.getDanio() + arma.getDanio() * 1.2)));
+            this.setStamina(0);
+            this.setEnergiaMagica(0);
+            System.out.println("ataque epicoooo");
     }
 
     @Override
@@ -31,19 +39,6 @@ public class Wizard extends Humano implements IHaceMagia {
     }
 
     @Override
-    public boolean puedoEjecutarAtaqueEpico() {
-        return  this.getStamina() < 10 && this.getEnergiaMagica() >= 5;
-    }
-
-    @Override
-    public void ataqueEpico(Personaje personaje, Arma arma) {
-            personaje.setSalud(personaje.getSalud() - (int)(arma.getDanio() + arma.getDanio() * 1.2));
-            this.setStamina(0);
-            this.setEnergiaMagica(0);
-            System.out.println("ataque epicoooo");
-    }
-
-    @Override
     public String toString() {
         return super.toString() + "Wizard{" +
                 "energiaMagica=" + energiaMagica +
@@ -51,3 +46,5 @@ public class Wizard extends Humano implements IHaceMagia {
                 '}';
     }
 }
+
+

@@ -4,8 +4,8 @@ import app.ILlevaReliquia;
 import app.reliquia.Reliquia;
 
 public class Humano extends Personaje implements ILlevaReliquia {
-    
-    public Reliquia reliquia;// Reliquia que porta el humano
+
+    public Reliquia reliquia;
 
     public Humano(String nombre, int salud, int stamina, Reliquia reliquia) {
         super(nombre, salud, stamina);
@@ -24,8 +24,7 @@ public class Humano extends Personaje implements ILlevaReliquia {
 
     @Override
     public String toString() {
-        return super.toString() + "Humano{" +
-                "reliquia=" + reliquia.getNombre() +
-                '}';
+        return super.toString() + "Humano{" + "reliquia=" + reliquia.getNombre() + '}';
     }
+
 }

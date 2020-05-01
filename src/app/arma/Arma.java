@@ -1,12 +1,11 @@
 package app.arma;
 
-
 public class Arma {
-    public String nombre;
-    public int danio;
-    public int stamina;
-    
-    
+    private String nombre;
+    private int danio;
+    private int stamina;
+
+
     public Arma(String nombre, int danio, int stamina) {
         this.nombre = nombre;
         this.danio = danio;
@@ -15,19 +14,14 @@ public class Arma {
 
     public String getNombre() {
         return nombre;
-   
+
     }
 
     public int getStamina(){
-    return stamina;
+        return stamina;
     }
 
     public int getDanio() {
-        return danio;
-    }
-
-    
-    public int setDanio(int i) {
         return danio;
     }
 
