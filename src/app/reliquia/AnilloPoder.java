@@ -6,7 +6,7 @@ public class AnilloPoder extends Reliquia implements IEsMagico {
 
     private int energiaMagica;
 
-    public AnilloPoder(String nombre, int factorDeAtaque, int factorDeDefensa, int energiaMagica) {
+    public AnilloPoder(String nombre, double factorDeAtaque, double factorDeDefensa, int energiaMagica) {
         super(nombre, factorDeAtaque, factorDeDefensa);
         this.energiaMagica = energiaMagica;
     }

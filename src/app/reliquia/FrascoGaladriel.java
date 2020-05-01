@@ -5,7 +5,8 @@ import app.IEsMagico;
 public class FrascoGaladriel extends Reliquia implements IEsMagico {
     private int energiaMagica;
 
-    public FrascoGaladriel(String nombre, int factorDeAtaque, int factorDeDefensa, int energiaMagica) {
+
+    public FrascoGaladriel(String nombre, double factorDeAtaque, double factorDeDefensa,  int energiaMagica) {
         super(nombre, factorDeAtaque, factorDeDefensa);
         this.energiaMagica = energiaMagica;
     }

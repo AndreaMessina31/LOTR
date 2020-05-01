@@ -32,10 +32,10 @@ public class Personaje {
     }
 
     public void atacar(Personaje personajeAtacado, Arma arma) {
+        
+        // TODO - Personaje con reliquia
 
-        //TODO - Personaje con reliquia
-
-        if(this instanceof ILlevaReliquia){
+        if (this instanceof ILlevaReliquia) {
             ILlevaReliquia personajeQueLlevaReliquia = (ILlevaReliquia) this;
             Reliquia r = personajeQueLlevaReliquia.getReliquia();
             System.out.println("                                          ");
@@ -44,7 +44,46 @@ public class Personaje {
             System.out.println("                     * FACTOR ATAQUE  " + r.getFactorDeAtaque() + "  * ");
             System.out.println("                     *********************");
             System.out.println("                                          ");
-            personajeAtacado.setSalud(personajeAtacado.getSalud() - r.getFactorDeAtaque());
+            //arma.setDanio(arma.getDanio()+10+(int)(arma.getDanio()*r.getFactorDeAtaque()));
+            personajeAtacado.setSalud(personajeAtacado.getSalud() - (int)(arma.getDanio() * r.getFactorDeAtaque()));
+            System.out.println( personajeAtacado.getSalud());
+        }
+
+        // TODO - Personaje con magia que lleve reliquia magica
+
+        if (this instanceof IHaceMagia) {
+            IHaceMagia personajeQueHaceMagia = (IHaceMagia) this;
+            if (this instanceof ILlevaReliquia) {
+                ILlevaReliquia personajeQueLlevaReliquia = (ILlevaReliquia) this;
+                Reliquia r = personajeQueLlevaReliquia.getReliquia();
+                if (r instanceof IEsMagico) {
+                    IEsMagico magico = (IEsMagico) r;
+                    personajeQueHaceMagia
+                            .setEnergiaMagica(personajeQueHaceMagia.getEnergiaMagica() - magico.getEnergiaMagica());
+                }
+            }
+        }
+
+        // TODO - Personaje con magia
+
+        if (this instanceof IHaceMagia) {
+            IHaceMagia personajeQueHaceMagia = (IHaceMagia) this;
+            if (personajeQueHaceMagia.puedoEjecutarAtaqueEpico()) {
+                personajeQueHaceMagia.ataqueEpico(personajeAtacado, arma);
+            } else {
+                // Se le resta danio al personaje atacado y se le descuenta en "salud"
+                personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
+                // La stamina del arma decrementa la stamina del personaje.
+                this.setStamina(this.getStamina() - arma.getStamina());
+                personajeQueHaceMagia.setEnergiaMagica(personajeQueHaceMagia.getEnergiaMagica() - 10);
+            }
+        } else {
+            // TODO - Personaje ATACANDO!
+
+            // Se le resta danio al personaje atacado y se le descuenta en "salud"
+            personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
+            // La stamina del arma decrementa la stamina del personaje.
+            this.setStamina(this.getStamina() - arma.getStamina());
         }
 
         if (personajeAtacado instanceof ILlevaReliquia) {
@@ -53,45 +92,18 @@ public class Personaje {
             System.out.println("                                          ");
             System.out.println("                     *********************");
             System.out.println("                     *        ATACADO    *");
-            System.out.println("                     * FACTOR DEFENSA  " + r.getFactorDeDefensa()  + " * ");
+            System.out.println("                     * FACTOR DEFENSA  " + r.getFactorDeDefensa() + " * ");
             System.out.println("                     *********************");
             System.out.println("                                          ");
-            personajeAtacado.setSalud(personajeAtacado.getSalud() +  r.getFactorDeDefensa());
+
+             personajeAtacado.setSalud(personajeAtacado.getSalud() + (int)(personajeAtacado.getSalud() * r.getFactorDeDefensa()));
+
+           
+             System.out.println(personajeAtacado.getSalud());
         }
-
-        //TODO - Personaje con magia
-
-        if (this instanceof IHaceMagia) {
-            IHaceMagia personajeQueHaceMagia = (IHaceMagia) this;
-            if(personajeQueHaceMagia.puedoEjecutarAtaqueEpico()){
-                personajeQueHaceMagia.ataqueEpico(personajeAtacado, arma);
-            }else {
-                personajeQueHaceMagia.setEnergiaMagica(personajeQueHaceMagia.getEnergiaMagica() - 10);
-            }
-        }
-
-        //TODO - Personaje con magia que lleve reliquia magica
-
-        if(this instanceof IHaceMagia){
-            IHaceMagia personajeQueHaceMagia = (IHaceMagia) this;
-            if(this instanceof ILlevaReliquia){
-                ILlevaReliquia personajeQueLlevaReliquia = (ILlevaReliquia) this;
-                Reliquia r = personajeQueLlevaReliquia.getReliquia();
-                if(r instanceof IEsMagico){
-                    IEsMagico magico = (IEsMagico) r;
-                    personajeQueHaceMagia.setEnergiaMagica(personajeQueHaceMagia.getEnergiaMagica() - magico.getEnergiaMagica());
-                }
-            }
-        }
-
-        //TODO - Personaje ATACANDO!
-
-        // Se le resta danio al personaje atacado y se le descuenta en "salud"
-        personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
-        //La stamina del arma  decrementa la stamina del personaje.
-        this.setStamina(this.getStamina() - arma.getStamina());
+        
     }
-
+    // _}______________________________________________________________________________________________________//
     public void agregarArma(Arma arma) {
         this.armas.add(arma);
     }
@@ -122,11 +134,7 @@ public class Personaje {
 
     @Override
     public String toString() {
-        return "Personaje{" +
-                "nombre='" + nombre + '\'' +
-                ", salud=" + salud +
-                ", stamina=" + stamina +
-                ", armas=" + armas +
-                '}';
+        return "Personaje{" + "nombre='" + nombre + '\'' + ", salud=" + salud + ", stamina=" + stamina + ", armas="
+                + armas + '}';
     }
 }

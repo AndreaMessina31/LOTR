@@ -34,4 +34,7 @@ public class Arma {
                 '}';
     }
 
+	public void setDanio(int i) {
+	}
+
 }

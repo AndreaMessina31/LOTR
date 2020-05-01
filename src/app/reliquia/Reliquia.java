@@ -2,20 +2,20 @@ package app.reliquia;
 
 public class Reliquia {
     public String  nombre;
-    public int  factorDeAtaque;
-    public int factorDeDefensa;
+    public double  factorDeAtaque;
+    public double factorDeDefensa;
 
-    public Reliquia(String nombre, int factorDeAtaque, int factorDeDefensa) {
+    public Reliquia(String nombre, double factorDeAtaque, double factorDeDefensa) {
         this.nombre = nombre; 
         this.factorDeAtaque  = factorDeAtaque;
 		this.factorDeDefensa  = factorDeDefensa;
     }
 
-    public int getFactorDeAtaque() {
+    public double getFactorDeAtaque() {
         return factorDeAtaque;
     }
 
-    public int getFactorDeDefensa() {
+    public double getFactorDeDefensa() {
         return factorDeDefensa;
     }
 
