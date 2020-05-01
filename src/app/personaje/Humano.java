@@ -25,7 +25,7 @@ public class Humano extends Personaje implements ILlevaReliquia {
 
     @Override
     public String toString() {
-        return super.toString() + "Humano{" + "reliquia=" + reliquia.getNombre() + '}';
+        return super.toString() + "Humano{" + "reliquia=" + reliquia + '}';
     }
 
 

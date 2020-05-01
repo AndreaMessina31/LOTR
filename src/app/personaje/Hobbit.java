@@ -26,7 +26,7 @@ public class Hobbit extends Criatura implements ILlevaReliquia {
 
     @Override
     public String toString() {
-        return super.toString() + "Hobbit{" + "reliquia=" + reliquia.getNombre() + '}';
+        return super.toString() + "Hobbit{" + "reliquia=" + reliquia + '}';
     }
 
    

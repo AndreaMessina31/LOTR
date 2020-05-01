@@ -32,37 +32,45 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia  {
     }
 
     @Override
-    public void ataqueEpico(Personaje personajeAtacado, Arma arma) {
-      if (puedoEjecutarAtaqueEpico()){
-      personajeAtacado.setSalud(personajeAtacado.getSalud() - (int)(arma.getDanio() + arma.getDanio() * 0.1));
-     this.setStamina(0);
-     this.setEnergiaMagica(0);
-     System.out.println("ataque epicoooo");
-     }// else {
+  public void ataqueEpico(Personaje personajeAtacado, Arma arma) {
+    if (puedoEjecutarAtaqueEpico()) {
+      personajeAtacado.setSalud(personajeAtacado.getSalud() - (int) (arma.getDanio() + arma.getDanio() * 0.1));
+
+      this.setStamina(0);
+      this.setEnergiaMagica(0);
+      System.out.println("ataque epicoooo <3 <3 <3 ");
+      System.out.println("ataque epicoooo <3 <3 <3 ");
+
+    } else {
       // Se le resta danio al personaje atacado y se le descuenta en "salud"
-     // personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
-      //La stamina del arma  decrementa la stamina del personaje.
-     // this.setStamina(this.getStamina() - arma.getStamina());
-   // }
+     personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
+      // La stamina del arma decrementa la stamina del personaje.
+      this.setStamina(this.getStamina() - arma.getStamina());
+      this.setEnergiaMagica(this.getEnergiaMagica());
+
+      
+      }
+
     }
-	@Override
-	public Reliquia getReliquia() {
+  
+//)	@Override
+//	public Reliquia getReliquia() {
 		// TODO Auto-generated method stub
-		return null;
-	}
+	//	return reliquia;
+	//}
 
 
-	@Override
-	public void setReliquia(Reliquia reliquia) {
+//	@Override
+	//public void setReliquia(Reliquia reliquia) {
 		// TODO Auto-generated method stub
 		
-	}
+	
 
 
 	@Override
 	public int getEnergiaMagica() {
 		// TODO Auto-generated method stub
-		return 0;
+		return energiaMagica;
 	}
 
   
@@ -72,10 +80,10 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia  {
     //    return reliquia;
     //}
 
-    //@Override
-    //public void setReliquia(Reliquia reliquia) {
-      //  this.reliquia = reliquia;
-    //}
+    @Override
+    public void setReliquia(Reliquia reliquia) {
+       this.reliquia = reliquia;
+    }
 
    // @Override
    // public int getEnergiaMagica() {
@@ -100,10 +108,20 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia  {
         //System.out.println("ataque epicoooo");
     //}
 
-  //  @Override
-    //public String toString() {
-      //  return super.toString() + "Elfo{" +
-        ///        "energiaMagica=" + energiaMagica +
-           //     '}';
-    //}
+   @Override
+    public String toString() {
+       return super.toString() + "Elfo{" +
+               "energiaMagica=" + energiaMagica +
+               ", reliquia=" + reliquia +
+
+                '}';
+    }
+
+    @Override
+    public Reliquia getReliquia() {
+      // TODO Auto-generated method stub
+      return reliquia;
+    }
+
+   
 }

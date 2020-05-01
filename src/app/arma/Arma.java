@@ -34,10 +34,10 @@ public class Arma {
 
     @Override
     public String toString() {
-        return "Arma{" +
+        return super.toString() + "prop arma{" +
                 "nombre='" + nombre + '\'' +
                 ", danio=" + danio +
-                ", staminaaaaaaaaaaaaaaaa=" + stamina +
+                ", stamina=" + stamina +
                 '}';
     }
 

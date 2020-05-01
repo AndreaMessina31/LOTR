@@ -2,6 +2,7 @@ package app;
 
 import app.arma.Arma;
 import app.personaje.Personaje;
+import app.reliquia.Reliquia;
 
 public interface IHaceMagia {
 

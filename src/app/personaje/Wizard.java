@@ -29,11 +29,12 @@ public class Wizard extends Humano implements IHaceMagia {
 
   @Override
   public int getEnergiaMagica() {
-    return 0;
+    return energiaMagica;
   }
 
   @Override
   public void setEnergiaMagica(int energiaMagica) {
+    this.energiaMagica = energiaMagica;
 
   }
 
@@ -56,7 +57,7 @@ public class Wizard extends Humano implements IHaceMagia {
 
 
   
-}
+
 // @Override
 // public void ataqueEpico(Personaje personaje, Arma arma) {
 // personaje.setSalud(personaje.getSalud() - (int)(arma.getDanio() +
@@ -70,9 +71,11 @@ public class Wizard extends Humano implements IHaceMagia {
 // System.out.println("ataque epicoooo");
 // }
 
-// @Override
-// return super.toString() + "Wizard{" +
-// "energiaMagica=" + energiaMagica +
-// ", reliquia=" + reliquia +
-// '}';
-// }
+ @Override
+ public String toString(){ 
+  return super.toString()+ "Wizard{" +
+"energiaMagica=" + energiaMagica +
+ ", reliquia=" + reliquia +
+ '}';
+ }
+}
