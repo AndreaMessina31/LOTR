@@ -8,6 +8,7 @@ import app.reliquia.Reliquia;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Personaje {
 
@@ -32,7 +33,7 @@ public class Personaje {
     }
 
     public void atacar(Personaje personajeAtacado, Arma arma) {
-        
+
         // TODO - Personaje con reliquia
 
         if (this instanceof ILlevaReliquia) {
@@ -44,9 +45,9 @@ public class Personaje {
             System.out.println("                     * FACTOR ATAQUE  " + r.getFactorDeAtaque() + "  * ");
             System.out.println("                     *********************");
             System.out.println("                                          ");
-            //arma.setDanio(arma.getDanio()+10+(int)(arma.getDanio()*r.getFactorDeAtaque()));
-            personajeAtacado.setSalud(personajeAtacado.getSalud() - (int)(arma.getDanio() * r.getFactorDeAtaque()));
-            System.out.println( personajeAtacado.getSalud());
+            // arma.setDanio(arma.getDanio()+10+(int)(arma.getDanio()*r.getFactorDeAtaque()));
+            personajeAtacado.setSalud(personajeAtacado.getSalud() - (int) (arma.getDanio() * r.getFactorDeAtaque()));
+            System.out.println(personajeAtacado.getSalud());
         }
 
         // TODO - Personaje con magia que lleve reliquia magica
@@ -69,7 +70,12 @@ public class Personaje {
         if (this instanceof IHaceMagia) {
             IHaceMagia personajeQueHaceMagia = (IHaceMagia) this;
             if (personajeQueHaceMagia.puedoEjecutarAtaqueEpico()) {
-                personajeQueHaceMagia.ataqueEpico(personajeAtacado, arma);
+                int e = 0;
+                System.out.println("quieres ejecutarlo ???");
+                Scanner teclado = new Scanner(System.in);
+                e = teclado.nextInt();
+               if (e==1){ personajeQueHaceMagia.ataqueEpico(personajeAtacado, arma);}
+
             } else {
                 // Se le resta danio al personaje atacado y se le descuenta en "salud"
                 personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
@@ -96,14 +102,23 @@ public class Personaje {
             System.out.println("                     *********************");
             System.out.println("                                          ");
 
-             personajeAtacado.setSalud(personajeAtacado.getSalud() + (int)(personajeAtacado.getSalud() * r.getFactorDeDefensa()));
+            personajeAtacado.setSalud(
+                    personajeAtacado.getSalud() + (int) (personajeAtacado.getSalud() * r.getFactorDeDefensa()));
 
-           
-             System.out.println(personajeAtacado.getSalud());
+            System.out.println(personajeAtacado.getSalud());
         }
-        
+
     }
     // _}______________________________________________________________________________________________________//
+
+    public void elegirAtaque() {
+        int e = 0;
+        System.out.println("quieres ejecutarlo ???");
+        Scanner teclado = new Scanner(System.in);
+        e = teclado.nextInt();
+
+    }
+
     public void agregarArma(Arma arma) {
         this.armas.add(arma);
     }
