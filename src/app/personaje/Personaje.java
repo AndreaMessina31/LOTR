@@ -66,8 +66,6 @@ public class Personaje {
             if(personajeQueHaceMagia.puedoEjecutarAtaqueEpico()){
                 personajeQueHaceMagia.ataqueEpico(personajeAtacado, arma);
             }else {
-                personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
-                this.setStamina(this.getStamina() - arma.getStamina());
                 personajeQueHaceMagia.setEnergiaMagica(personajeQueHaceMagia.getEnergiaMagica() - 10);
             }
         }

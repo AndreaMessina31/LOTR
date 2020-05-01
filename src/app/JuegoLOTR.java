@@ -160,9 +160,15 @@ public class JuegoLOTR {
         }
         System.out.println("                                          ");
 
-        System.out.println("ARMAS                                             ARMAS");
+        System.out.println("ARMAS 1");
 
         for (Arma a: p1.getArmas()) {
+            System.out.println(a);
+        }
+
+        System.out.println("ARMAS 2");
+
+        for (Arma a: p2.getArmas()) {
             System.out.println(a);
         }
 
@@ -172,15 +178,15 @@ public class JuegoLOTR {
     void inicializar() {
         // Arma
 
-        Sting sting = new Sting("Espada Sting", 10, 10, 10);
+        Sting sting = new Sting("Espada Sting", 10, 31, 10);
 
-        Anduril anduril = new Anduril("Espada Anduril", 15, 16, 15);
+        Anduril anduril = new Anduril("Espada Anduril", 15, 30, 15);
 
-        HachaDoble hacha = new HachaDoble("Hacha doble", 10, 11);
+        HachaDoble hacha = new HachaDoble("Hacha doble", 10, 22);
 
-        ArcoYFlecha arco = new ArcoYFlecha("Arco y flecha", 5, 6);
+        ArcoYFlecha arco = new ArcoYFlecha("Arco y flecha", 5, 20);
 
-        Baculo baculo = new Baculo("Baculo", 20, 20,20);
+        Baculo baculo = new Baculo("Baculo", 20, 20,18);
 
         armas.add(sting);
         armas.add(anduril);
@@ -195,15 +201,15 @@ public class JuegoLOTR {
 
         ChalecoMithril chalecoMithril = new ChalecoMithril("Chaleco Mithril", 5, 2);
 
-        AnilloSauron anilloSauron = new AnilloSauron("Anillo Sauron", 5, 2, 15);
+        AnilloSauron anilloSauron = new AnilloSauron("Anillo Sauron", 5, 2, 10);
 
         AnilloElfo anilloElfo = new AnilloElfo("Anillo Elfo", 5, 2, 10);
 
-        AnilloNarya anilloNarya = new AnilloNarya("Anillo Nerya", 5, 2, 20);
+        AnilloNarya anilloNarya = new AnilloNarya("Anillo Nerya", 5, 2, 10);
 
         AnilloNenya anilloNenya = new AnilloNenya("Anillo Nenya", 5, 2, 10);
 
-        AnilloVilya anilloVilya = new AnilloVilya("Anillo Vilya", 5, 2, 5);
+        AnilloVilya anilloVilya = new AnilloVilya("Anillo Vilya", 5, 2, 10);
 
         // Personaje
 
@@ -223,7 +229,7 @@ public class JuegoLOTR {
 
         Enano enano = new Enano("Gimli", 100, 100);
 
-        Troll troll = new Troll("Troll", 100, 120);
+        Troll troll = new Troll("Troll", 100, 100);
 
         personajes.add(humano1);
         personajes.add(humano2);
