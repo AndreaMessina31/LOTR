@@ -10,91 +10,83 @@ import app.reliquia.*;
 import app.personaje.*;
 
 public class JuegoLOTR {
-    public static Scanner Teclado = new Scanner(System.in);
-    public static List<Arma> armas = new ArrayList<Arma>();
-    public static List<Personaje> personajes = new ArrayList<Personaje>();
-    private List<Reliquia> reliquias = new ArrayList<Reliquia>();
+    private static Scanner Teclado = new Scanner(System.in);
+    private static List<Arma> armas = new ArrayList<Arma>();
+    private static List<Personaje> personajes = new ArrayList<Personaje>();
 
     public static final String blue = "\033[34m";
 
     // Recorre lista de armas.
     public static Arma buscarArma(int indiceA) {
-        if (indiceA >= 1 && indiceA <= 9) {
-                return armas.get(indiceA-1);
-            }
-        
+        if (indiceA >= 1 && indiceA <= 6) {
+            return armas.get(indiceA - 1);
+        }
+
         System.out.println("El numero que ingreso no es valido");
         return null;
     }
 
     // recorre lista de personajes.
     public static Personaje buscarPersonaje(int indiceP) {
-        if (indiceP >= 1 && indiceP <= 9){
-            return personajes.get(indiceP-1);
+        if (indiceP >= 1 && indiceP <= 9) {
+            return personajes.get(indiceP - 1);
         }
-        
+
         System.out.println("El numero que ingreso no es valido");
         return null;
     }
 
-    // TODO - validar numero
-
-    /*
-     * public boolean validar(int personaje) { if (personaje == i) { return true; }
-     * else { System.out.println("Valor no permitido, volver a ingresar"); return
-     * false; } }
-     */
-
-    // como detenemos el while para avisar que un personaje puede usar ataque epico
-
-    public static void iniciarBatalla(Personaje p1, Personaje p2) {
-
+    static void iniciarBatalla(Personaje p1, Personaje p2) {
+    
         // El juego sigue hasta que uno de los jugadores se queda sin vida.
        do{ 
             if (p1.estaVivo()) {
                 if (p1.tieneStamina()) {
                     System.out.println("                    ");
-                    System.out.println("ATACANDOOOOO P1");
-                    System.out.println("                    ");
-
+                    System.out.println("                            JUGADOR 1");
                     Arma a1 = elegirOpcionArma();
                     p1.agregarArma(a1);
 
                     p1.atacar(p2, a1);
 
-                    System.out.println("Jugador 1: " + p1.toString());
-                    System.out.println("Jugador 2: " + p2.toString());
-                } else {
-                    System.out.println(p1.getNombre() + " No puedes atacar, te quedaste sin stamnina ");
-                }
+                    System.out.println("                       ATACANDO JUGADOR 1");
+                    resultadoJugadores(p1, p2);
 
+                } else{
+                   System.out.println(p1.getNombre() + "   TE QUEDASTE SIN STAMINA ");
+                }
+               
             } else {
-                System.out.println(p1.getNombre() + " Estas muerto ! :c ");
+                System.out.println(p1.getNombre() + "              GAME OVER ");
             }
 
             if (p2.estaVivo()) {
                 if (p2.tieneStamina()) {
                     System.out.println("                    ");
-                    System.out.println("ATACANDOOOOO P2");
-                    System.out.println("                    ");
-
+                    System.out.println("                            JUGADOR 2");
                     Arma a2 = elegirOpcionArma();
                     p2.agregarArma(a2);
                     p2.atacar(p1, a2);
 
-                    System.out.println("Jugador 1: " + p1.toString());
-                    System.out.println("Jugador 2: " + p2.toString());
+                    System.out.println("                       ATACANDO JUGADOR 2");
+                    resultadoJugadores(p1, p2);
+
                 } else {
-                    System.out.println(p2.getNombre() + " no puedes atacar, te quedaste sin stamnina ");
+                    System.out.println(p2.getNombre() + "   TE QUEDASTE SIN STAMINA ");
 
                 }
             } else {
-                System.out.println(p2.getNombre() + " estas muerto ! :c  ");
-            }
-        }while (p1.estaVivo() && p2.estaVivo());
+                System.out.println(p2.getNombre() + "              GAME OVER ");
 
-        // elegir proxima arma
-        // puede usar ataque epico
+            }
+            if(!p1.tieneStamina()&& !p2.tieneStamina()){
+
+                System.out.println( p1.getNombre() + p2.getNombre () + " ambos se quedaron sin Stamina");
+                
+            }
+         }
+         
+         while (p1.estaVivo() && p2.estaVivo());
 
         // Resultado de la Batalla
         System.out.println("Batalla finalizada salud de los jugadores " + "  " + p1.getNombre() + "  " + p1.getSalud()
@@ -108,29 +100,33 @@ public class JuegoLOTR {
         if (p2.estaVivo()) {
             System.out.println("El ganador es " + p2.getNombre());
         } 
+        
+        if (!p1.estaVivo() && !p2.estaVivo()) {
+            System.out.println("empate");
+            System.out.println("empate");
+            System.out.println("empate");
+        }    
 
-    }else {
-        System.out.println("empate");
-        System.out.println("empate");
-        System.out.println("empate");
     }
-    }
+    
+       }
+    
     static Arma elegirOpcionArma() {
         int arma;
         Arma arm;
-        do{
-        System.out.println("Ingrese el nombre del arma");
-        System.out.println("*********************");
-        System.out.println("1. Espada Sting");
-        System.out.println("2. Espada Anduril");
-        System.out.println("3. Hacha doble");
-        System.out.println("4. Arco y flecha");
-        System.out.println("5. Baculo");
-        System.out.println("*********************");
+        do {
+            System.out.println("Ingrese el nombre del arma");
+            System.out.println("*********************");
+            System.out.println("1. Espada Sting");
+            System.out.println("2. Espada Anduril");
+            System.out.println("3. Hacha doble");
+            System.out.println("4. Arco y flecha");
+            System.out.println("5. Baculo");
+            System.out.println("*********************");
 
-        arma = Teclado.nextInt();
+            arma = Teclado.nextInt();
 
-        arm = buscarArma(arma);
+            arm = buscarArma(arma);
 
         } while (arm == null);
 
@@ -140,45 +136,86 @@ public class JuegoLOTR {
     static Personaje elegirOpcionPersonaje() {
         int personaje;
         Personaje p;
-        do{
-        System.out.println("Ingrese el nombre del Personaje");
-        System.out.println("*********************");
-        System.out.println("1. Aragorn");
-        System.out.println("2. Boromir");
-        System.out.println("3. Gandalf");
-        System.out.println("4. Frodo");
-        System.out.println("5. Legolas <3 ");
-        System.out.println("6. Orco");
-        System.out.println("7. Goblin");
-        System.out.println("8. Gimli");
-        System.out.println("9. Troll");
-        System.out.println("*********************");
+        do {
+            System.out.println("Ingrese el nombre del Personaje");
+            System.out.println("*********************");
+            System.out.println("1. Aragorn");
+            System.out.println("2. Boromir");
+            System.out.println("3. Gandalf");
+            System.out.println("4. Frodo");
+            System.out.println("5. Legolas <3 ");
+            System.out.println("6. Orco");
+            System.out.println("7. Goblin");
+            System.out.println("8. Gimli");
+            System.out.println("9. Troll");
+            System.out.println("*********************");
 
-         personaje = Teclado.nextInt();
+            personaje = Teclado.nextInt();
 
-        p = buscarPersonaje(personaje);
+            p = buscarPersonaje(personaje);
 
+        } while (p == null);
 
-        
-    }while (p==null);
-    
+        return p;
+    }
 
-    return p;
-}
+    public static void resultadoJugadores(Personaje p1, Personaje p2) {
+        System.out.println("                                          ");
+        System.out.println("                                ");
+        System.out.println("           JUGADOR 1 " + "                               JUGADOR 2 ");
+        System.out.println("        NOMBRE " + p1.getNombre() + "                           NOMBRE " + p2.getNombre());
+        System.out
+                .println("         SALUD " + p1.getSalud() + "                                SALUD " + p2.getSalud());
+        System.out.println(
+                "       STAMINA " + p1.getStamina() + "                              STAMINA " + p2.getStamina());
+        if (p1 instanceof IHaceMagia && p2 instanceof IHaceMagia) {
+            System.out.println("ENERGIA MAGICA " + ((IHaceMagia) p1).getEnergiaMagica()
+                    + "                       ENERGIA MAGICA " + ((IHaceMagia) p2).getEnergiaMagica());
+        } else if (p2 instanceof IHaceMagia) {
+            System.out.println("                                                ENERGIA MAGICA "
+                    + ((IHaceMagia) p2).getEnergiaMagica());
+        } else if (p1 instanceof IHaceMagia) {
+            System.out.println("ENERGIA MAGICA " + ((IHaceMagia) p1).getEnergiaMagica());
+        }
 
+        if (p1 instanceof ILlevaReliquia && p2 instanceof ILlevaReliquia) {
+            System.out.println("      RELIQUIA " + ((ILlevaReliquia) p1).getReliquia().getNombre()
+                    + "                RELIQUIA " + ((ILlevaReliquia) p2).getReliquia().getNombre());
+        } else if (p1 instanceof ILlevaReliquia) {
+            System.out.println("      RELIQUIA " + ((ILlevaReliquia) p1).getReliquia().getNombre());
+        } else if (p2 instanceof ILlevaReliquia) {
+            System.out.println("                                               RELIQUIA "
+                    + ((ILlevaReliquia) p2).getReliquia().getNombre());
+        }
+        System.out.println("                                          ");
 
-    public void inicializar() {
+        System.out.println("ARMAS 1");
+
+        for (Arma a : p1.getArmas()) {
+            System.out.println(a);
+        }
+
+        System.out.println("ARMAS 2");
+
+        for (Arma a : p2.getArmas()) {
+            System.out.println(a);
+        }
+
+        System.out.println("                                          ");
+    }
+
+    void inicializar() {
         // Arma
 
-        Sting sting = new Sting("Espada Sting", 10, 10, 5);
+        Sting sting = new Sting("Espada Sting", 10, 31, 10);
 
-        Anduril anduril = new Anduril("Espada Anduril", 15, 5, 5);
+        Anduril anduril = new Anduril("Espada Anduril", 15, 30, 15);
 
-        HachaDoble hacha = new HachaDoble("Hacha doble", 10, 5);
+        HachaDoble hacha = new HachaDoble("Hacha doble", 10, 22);
 
-        ArcoYFlecha arco = new ArcoYFlecha("Arco y flecha", 5, 6);
+        ArcoYFlecha arco = new ArcoYFlecha("Arco y flecha", 5, 20);
 
-        Baculo baculo = new Baculo("Baculo", 20, 5, 20);
+        Baculo baculo = new Baculo("Baculo", 20, 20, 18);
 
         armas.add(sting);
         armas.add(anduril);
@@ -188,19 +225,19 @@ public class JuegoLOTR {
 
         // Reliquia
 
-        FrascoGaladriel frascoGaladriel = new FrascoGaladriel("Frasco Galadriel", 0.1, 0.2, 10);
+        FrascoGaladriel frascoGaladriel = new FrascoGaladriel("Frasco Galadriel", 5, 2, 10);
 
-        ChalecoMithril chalecoMithril = new ChalecoMithril("Chaleco Mithril", 0.2, 0.2);
+        ChalecoMithril chalecoMithril = new ChalecoMithril("Chaleco Mithril", 5, 2);
 
-        AnilloSauron anilloSauron = new AnilloSauron("Sauron", 0.05, 0.2, 10);
+        AnilloSauron anilloSauron = new AnilloSauron("Anillo Sauron", 5, 2, 10);
 
-        AnilloElfo anilloElfo = new AnilloElfo("Elfo", 0.2, 0.3, 15);
+        AnilloElfo anilloElfo = new AnilloElfo("Anillo Elfo", 5, 2, 10);
 
-        AnilloNarya anilloNarya = new AnilloNarya("Nerya", 0.2, 0.2, 20);
+        AnilloNarya anilloNarya = new AnilloNarya("Anillo Nerya", 5, 2, 10);
 
-        AnilloNenya anilloNenya = new AnilloNenya("Nenya", 0.3, 0.1, 10);
+        AnilloNenya anilloNenya = new AnilloNenya("Anillo Nenya", 5, 2, 10);
 
-        AnilloVilya anilloVilya = new AnilloVilya("Vilya", 0.1, 0.2, 5);
+        AnilloVilya anilloVilya = new AnilloVilya("Anillo Vilya", 5, 2, 10);
 
         // Personaje
 
@@ -220,7 +257,7 @@ public class JuegoLOTR {
 
         Enano enano = new Enano("Gimli", 100, 100);
 
-        Troll troll = new Troll("Troll", 100, 120);
+        Troll troll = new Troll("Troll", 100, 100);
 
         personajes.add(humano1);
         personajes.add(humano2);

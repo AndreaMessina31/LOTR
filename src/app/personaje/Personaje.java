@@ -14,8 +14,7 @@ public class Personaje {
     private String nombre;
     private int salud; // max 100
     private int stamina;// resistencia
-    private List<Arma> armas = new ArrayList<Arma>(); // las armas disponibles que tiene que usar
-    private List<Reliquia> reliquias = new ArrayList<Reliquia>();
+    private List<Arma> armas = new ArrayList<Arma>();
 
     public Personaje(String nombre, int salud, int stamina) {
         this.nombre = nombre;
@@ -29,56 +28,76 @@ public class Personaje {
     }
 
     public boolean tieneStamina() {
-        return stamina > 0;
+        return stamina >= 0;
     }
-    
 
-    public void atacar(Personaje personajeAtacado, Arma arma ) {
+    public void atacar(Personaje personajeAtacado, Arma arma) {
+
+        //TODO - Personaje con reliquia
+
+        if(this instanceof ILlevaReliquia){
+            ILlevaReliquia personajeQueLlevaReliquia = (ILlevaReliquia) this;
+            Reliquia r = personajeQueLlevaReliquia.getReliquia();
+            System.out.println("                                          ");
+            System.out.println("                     *********************");
+            System.out.println("                     *      ATACANTE     *");
+            System.out.println("                     * FACTOR ATAQUE  " + r.getFactorDeAtaque() + "  * ");
+            System.out.println("                     *********************");
+            System.out.println("                                          ");
+            personajeAtacado.setSalud(personajeAtacado.getSalud() - r.getFactorDeAtaque());
+        }
+
+        if (personajeAtacado instanceof ILlevaReliquia) {
+            ILlevaReliquia atacado = (ILlevaReliquia) personajeAtacado;
+            Reliquia r = atacado.getReliquia();
+            System.out.println("                                          ");
+            System.out.println("                     *********************");
+            System.out.println("                     *        ATACADO    *");
+            System.out.println("                     * FACTOR DEFENSA  " + r.getFactorDeDefensa()  + " * ");
+            System.out.println("                     *********************");
+            System.out.println("                                          ");
+            personajeAtacado.setSalud(personajeAtacado.getSalud() +  r.getFactorDeDefensa());
+        }
+
+        //TODO - Personaje con magia
 
         if (this instanceof IHaceMagia) {
             IHaceMagia personajeQueHaceMagia = (IHaceMagia) this;
-             personajeQueHaceMagia.ataqueEpico(personajeAtacado, arma);
-            
-        
-              }  else{
-                  
-              // Se le resta danio al personaje atacado y se le descuenta en "salud"
-        personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
-        // La stamina del arma decrementa la stamina del personaje.
-        this.setStamina(this.getStamina() - arma.getStamina());
-             }
-       
-             if (this instanceof ILlevaReliquia){
-                Reliquia reliquiaP = ((ILlevaReliquia) this).getReliquia();
-                System.out.println("oh el atacante lleva reliquia factor daño" );
-                 //reliquiaP.ataqueConReliquia();
-                personajeAtacado.setSalud(personajeAtacado.getSalud() - (int)(arma.getDanio()*reliquiaP.getFactorDeAtaque()));
-             }
-            
-               if(personajeAtacado instanceof ILlevaReliquia){
-                Reliquia reliquia2 = ((ILlevaReliquia) personajeAtacado).getReliquia();
-                this.setSalud(this.getSalud()+ (int)(this.getSalud() * reliquia2.getFactorDeDefensa()));
-                System.out.println("oh atacado lleva reliquia factor defensa" );
-
-                if (this instanceof IHaceMagia) {
-                    IHaceMagia personajeQueHaceMagia = (IHaceMagia) this;
-                  //Reliquia objetoMagico = (IHaceMagia) objetoMagico.getEnergiaMagica();
-                    //  IHaceMagia objetoMagico = (IHaceMagia) this.getEnergiaMagica();
-                    System.out.println("La magia no es ilimitada energia magica"  );
-                    personajeQueHaceMagia.setEnergiaMagica(personajeQueHaceMagia.getEnergiaMagica()- 10);
-                }
-
-               }
+            if(personajeQueHaceMagia.puedoEjecutarAtaqueEpico()){
+                personajeQueHaceMagia.ataqueEpico(personajeAtacado, arma);
+            }else {
+                personajeQueHaceMagia.setEnergiaMagica(personajeQueHaceMagia.getEnergiaMagica() - 10);
             }
-        
-    
+        }
+
+        //TODO - Personaje con magia que lleve reliquia magica
+
+        if(this instanceof IHaceMagia){
+            IHaceMagia personajeQueHaceMagia = (IHaceMagia) this;
+            if(this instanceof ILlevaReliquia){
+                ILlevaReliquia personajeQueLlevaReliquia = (ILlevaReliquia) this;
+                Reliquia r = personajeQueLlevaReliquia.getReliquia();
+                if(r instanceof IEsMagico){
+                    IEsMagico magico = (IEsMagico) r;
+                    personajeQueHaceMagia.setEnergiaMagica(personajeQueHaceMagia.getEnergiaMagica() - magico.getEnergiaMagica());
+                }
+            }
+        }
+
+        //TODO - Personaje ATACANDO!
+
+        // Se le resta danio al personaje atacado y se le descuenta en "salud"
+        personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
+        //La stamina del arma  decrementa la stamina del personaje.
+        this.setStamina(this.getStamina() - arma.getStamina());
+    }
+
     public void agregarArma(Arma arma) {
         this.armas.add(arma);
     }
 
-   public Reliquia agregarReliquia(Reliquia reliquia) {
-        this.reliquias.add(reliquia);
-        return reliquia;
+    public List<Arma> getArmas() {
+        return armas;
     }
 
     public String getNombre() {
@@ -101,24 +120,13 @@ public class Personaje {
         this.stamina = stamina;
     }
 
-    
-  //  public void setEnergiaMagica(int energiaMagica) {
-    //    this.energiaMagica= energiaMagica;
-    //}
-      //  public int getEnergiaMagica(){
-        //    return energiaMagica ;
-        //}
-    
-
-
-    
     @Override
     public String toString() {
-    
-		return "Personaje{" + "nombre='" + nombre + '\'' + ", salud=" + salud + ", stamina=" + stamina + ", armas="
-                + armas +
-                
+        return "Personaje{" +
+                "nombre='" + nombre + '\'' +
+                ", salud=" + salud +
+                ", stamina=" + stamina +
+                ", armas=" + armas +
                 '}';
     }
-
 }
