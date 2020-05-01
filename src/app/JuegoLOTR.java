@@ -45,43 +45,48 @@ public class JuegoLOTR {
     
         // El juego sigue hasta que uno de los jugadores se queda sin vida.
         while (p1.estaVivo() && p2.estaVivo()) {
-            if (p1.estaVivo()) {
-                if (p1.tieneStamina()) {
-                    System.out.println("                    ");
-                    System.out.println("                            JUGADOR 1");
-                    Arma a1 = elegirOpcionArma();
-                    p1.agregarArma(a1);
+            if(p1.tieneStamina() && p2.tieneStamina()){
+                if (p1.estaVivo()) {
+                    if (p1.tieneStamina()) {
+                        System.out.println("                    ");
+                        System.out.println("                            JUGADOR 1");
+                        Arma a1 = elegirOpcionArma();
+                        p1.agregarArma(a1);
 
-                    p1.atacar(p2, a1);
+                        p1.atacar(p2, a1);
 
-                    System.out.println("                       ATACANDO JUGADOR 1");
-                    resultadoJugadores(p1, p2);
+                        System.out.println("                       ATACANDO JUGADOR 1");
+                        resultadoJugadores(p1, p2);
 
-                } else{
-                    System.out.println(p1.getNombre() + "   TE QUEDASTE SIN STAMINA ");
-                }
-
-            } else {
-                System.out.println(p1.getNombre() + "              GAME OVER ");
-            }
-
-            if (p2.estaVivo()) {
-                if (p2.tieneStamina()) {
-                    System.out.println("                    ");
-                    System.out.println("                            JUGADOR 2");
-                    Arma a2 = elegirOpcionArma();
-                    p2.agregarArma(a2);
-                    p2.atacar(p1, a2);
-
-                    System.out.println("                       ATACANDO JUGADOR 2");
-                    resultadoJugadores(p1, p2);
+                    } else{
+                        System.out.println(p1.getNombre() + "   TE QUEDASTE SIN STAMINA ");
+                    }
 
                 } else {
-                    System.out.println(p2.getNombre() + "   TE QUEDASTE SIN STAMINA ");
-
+                    System.out.println(p1.getNombre() + "              GAME OVER ");
                 }
-            } else {
-                System.out.println(p2.getNombre() + "              GAME OVER ");
+
+                if (p2.estaVivo()) {
+                    if (p2.tieneStamina()) {
+                        System.out.println("                    ");
+                        System.out.println("                            JUGADOR 2");
+                        Arma a2 = elegirOpcionArma();
+                        p2.agregarArma(a2);
+                        p2.atacar(p1, a2);
+
+                        System.out.println("                       ATACANDO JUGADOR 2");
+                        resultadoJugadores(p1, p2);
+
+                    } else {
+                        System.out.println(p2.getNombre() + "   TE QUEDASTE SIN STAMINA ");
+
+                    }
+                } else {
+                    System.out.println(p2.getNombre() + "              GAME OVER ");
+                }
+            }else {
+                System.out.println("                                EMPATE ");
+                break;
             }
         }
 
@@ -112,9 +117,7 @@ public class JuegoLOTR {
 
         int arma = Teclado.nextInt();
 
-        Arma arm = buscarArma(arma);
-
-        return arm;
+        return buscarArma(arma);
     }
 
     static Personaje elegirOpcionPersonaje() {
@@ -136,7 +139,7 @@ public class JuegoLOTR {
         return buscarPersonaje(personaje);
     }
 
-    public static void resultadoJugadores(Personaje p1, Personaje p2){
+    static void resultadoJugadores(Personaje p1, Personaje p2){
         System.out.println("                                          ");
         System.out.println("                                ");
         System.out.println("           JUGADOR 1 " + "                               JUGADOR 2 ");
@@ -178,15 +181,15 @@ public class JuegoLOTR {
     void inicializar() {
         // Arma
 
-        Sting sting = new Sting("Espada Sting", 10, 31, 10);
+        Sting sting = new Sting("Espada Sting", 19, 22, 0);
 
-        Anduril anduril = new Anduril("Espada Anduril", 15, 30, 15);
+        Anduril anduril = new Anduril("Espada Anduril", 16, 16, 0);
 
-        HachaDoble hacha = new HachaDoble("Hacha doble", 10, 22);
+        HachaDoble hacha = new HachaDoble("Hacha doble", 18, 24);
 
-        ArcoYFlecha arco = new ArcoYFlecha("Arco y flecha", 5, 20);
+        ArcoYFlecha arco = new ArcoYFlecha("Arco y flecha", 15, 20);
 
-        Baculo baculo = new Baculo("Baculo", 20, 20,18);
+        Baculo baculo = new Baculo("Baculo", 20, 20,0);
 
         armas.add(sting);
         armas.add(anduril);
@@ -197,19 +200,19 @@ public class JuegoLOTR {
         // Reliquia
 
 
-        FrascoGaladriel frascoGaladriel = new FrascoGaladriel("Frasco Galadriel", 5, 2, 10);
+        FrascoGaladriel frascoGaladriel = new FrascoGaladriel("Frasco Galadriel", 5, 2, 8);
 
         ChalecoMithril chalecoMithril = new ChalecoMithril("Chaleco Mithril", 5, 2);
 
-        AnilloSauron anilloSauron = new AnilloSauron("Anillo Sauron", 5, 2, 10);
+        AnilloSauron anilloSauron = new AnilloSauron("Anillo Sauron", 5, 2, 8);
 
-        AnilloElfo anilloElfo = new AnilloElfo("Anillo Elfo", 5, 2, 10);
+        AnilloElfo anilloElfo = new AnilloElfo("Anillo Elfo", 5, 2, 8);
 
-        AnilloNarya anilloNarya = new AnilloNarya("Anillo Nerya", 5, 2, 10);
+        AnilloNarya anilloNarya = new AnilloNarya("Anillo Nerya", 5, 2, 8);
 
-        AnilloNenya anilloNenya = new AnilloNenya("Anillo Nenya", 5, 2, 10);
+        AnilloNenya anilloNenya = new AnilloNenya("Anillo Nenya", 5, 2, 8);
 
-        AnilloVilya anilloVilya = new AnilloVilya("Anillo Vilya", 5, 2, 10);
+        AnilloVilya anilloVilya = new AnilloVilya("Anillo Vilya", 5, 2, 8);
 
         // Personaje
 

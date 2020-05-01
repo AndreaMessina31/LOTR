@@ -17,7 +17,7 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia  {
 
     @Override
     public boolean puedoEjecutarAtaqueEpico() {
-        return  this.getStamina() < 10 && this.getEnergiaMagica() >= 20;
+        return  this.getStamina() < 20 && this.getEnergiaMagica() >= 20;
     }
 
     @Override

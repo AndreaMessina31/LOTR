@@ -17,15 +17,16 @@ public class Wizard extends Humano implements IHaceMagia {
 
     @Override
     public boolean puedoEjecutarAtaqueEpico() {
-        return  this.getStamina() < 10 && this.getEnergiaMagica() >= 5;
+        return  this.getStamina() < 20 && this.getEnergiaMagica() >= 5;
     }
 
     @Override
     public void ataqueEpico(Personaje personaje, Arma arma) {
-            personaje.setSalud((int) (personaje.getSalud() - (int)(arma.getDanio() + arma.getDanio() * 1.2)));
-            this.setStamina(0);
-            this.setEnergiaMagica(0);
-            System.out.println("ataque epicoooo");
+        personaje.setSalud(personaje.getSalud() - (int)(arma.getDanio() + arma.getDanio() * 1.2));
+        System.out.println((arma.getDanio() + arma.getDanio() * 1.2));
+        this.setStamina(0);
+        this.setEnergiaMagica(0);
+        System.out.println("ataque epicoooo");
     }
 
     @Override

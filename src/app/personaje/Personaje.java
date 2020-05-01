@@ -59,17 +59,6 @@ public class Personaje {
             personajeAtacado.setSalud(personajeAtacado.getSalud() +  r.getFactorDeDefensa());
         }
 
-        //TODO - Personaje con magia
-
-        if (this instanceof IHaceMagia) {
-            IHaceMagia personajeQueHaceMagia = (IHaceMagia) this;
-            if(personajeQueHaceMagia.puedoEjecutarAtaqueEpico()){
-                personajeQueHaceMagia.ataqueEpico(personajeAtacado, arma);
-            }else {
-                personajeQueHaceMagia.setEnergiaMagica(personajeQueHaceMagia.getEnergiaMagica() - 10);
-            }
-        }
-
         //TODO - Personaje con magia que lleve reliquia magica
 
         if(this instanceof IHaceMagia){
@@ -84,12 +73,26 @@ public class Personaje {
             }
         }
 
-        //TODO - Personaje ATACANDO!
+        //TODO - Personaje con magia
 
-        // Se le resta danio al personaje atacado y se le descuenta en "salud"
-        personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
-        //La stamina del arma  decrementa la stamina del personaje.
-        this.setStamina(this.getStamina() - arma.getStamina());
+        if (this instanceof IHaceMagia) {
+            IHaceMagia personajeQueHaceMagia = (IHaceMagia) this;
+            if(personajeQueHaceMagia.puedoEjecutarAtaqueEpico()){
+                personajeQueHaceMagia.ataqueEpico(personajeAtacado, arma);
+            }else {
+                personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
+                this.setStamina(this.getStamina() - arma.getStamina());
+                personajeQueHaceMagia.setEnergiaMagica(personajeQueHaceMagia.getEnergiaMagica() - 10);
+            }
+        }else {
+            //TODO - Personaje ATACANDO!
+
+            // Se le resta danio al personaje atacado y se le descuenta en "salud"
+            personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
+            //La stamina del arma  decrementa la stamina del personaje.
+            this.setStamina(this.getStamina() - arma.getStamina());
+        }
+
     }
 
     public void agregarArma(Arma arma) {
