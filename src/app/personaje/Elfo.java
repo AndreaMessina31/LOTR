@@ -22,10 +22,12 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia  {
 
     @Override
     public void ataqueEpico(Personaje personaje, Arma arma) {
-        personaje.setSalud(personaje.getSalud() - (int)(arma.getDanio() + arma.getDanio() * 1.2));
+        personaje.setSalud(personaje.getSalud() - (int)(arma.getDanio() + arma.getDanio() * 2.5));
         this.setStamina(0);
         this.setEnergiaMagica(0);
-        System.out.println("ataque epicoooo");
+        System.out.println("                      ");
+        System.out.println("                      *** ATAQUE EPICO *** ");
+        System.out.println("                      ");
     }
 
     @Override
@@ -46,13 +48,5 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia  {
     @Override
     public void setReliquia(Reliquia reliquia) {
         this.reliquia = reliquia;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString() + "Elfo{" +
-                "energiaMagica=" + energiaMagica +
-                ", reliquia=" + reliquia.getNombre() +
-                '}';
     }
 }

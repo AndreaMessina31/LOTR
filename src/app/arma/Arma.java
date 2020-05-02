@@ -25,13 +25,4 @@ public class Arma {
         return danio;
     }
 
-    @Override
-    public String toString() {
-        return "Arma{" +
-                "nombre='" + nombre + '\'' +
-                ", danio=" + danio +
-                ", stamina=" + stamina +
-                '}';
-    }
-
 }
