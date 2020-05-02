@@ -1,11 +1,12 @@
 package app.personaje;
+
 import app.arma.Arma;
 import app.IHaceMagia;
 import app.ILlevaReliquia;
 import app.reliquia.Reliquia;
 
-public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia  {
-    
+public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia {
+
     public int energiaMagica; // Posee la enregía mágica del Elfo (max 100)
     public Reliquia reliquia;// Reliquia que porta el Elfo
 
@@ -17,12 +18,12 @@ public class Elfo extends Criatura implements IHaceMagia, ILlevaReliquia  {
 
     @Override
     public boolean puedoEjecutarAtaqueEpico() {
-        return  this.getStamina() < 20 && this.getEnergiaMagica() >= 20;
+        return this.getStamina() < 20 && this.getEnergiaMagica() >= 20;
     }
 
     @Override
     public void ataqueEpico(Personaje personaje, Arma arma) {
-        personaje.setSalud(personaje.getSalud() - (int)(arma.getDanio() + arma.getDanio() * 2.5));
+        personaje.setSalud(personaje.getSalud() - (int) (arma.getDanio() + arma.getDanio() * 2.5));
         this.setStamina(0);
         this.setEnergiaMagica(0);
         System.out.println("                      ");

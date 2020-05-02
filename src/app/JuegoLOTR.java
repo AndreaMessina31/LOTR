@@ -38,8 +38,8 @@ public class JuegoLOTR {
 
     static void iniciarBatalla(Personaje p1, Personaje p2) {
 
-         //El juego sigue hasta que uno de los jugadores se queda sin vida.
-        do { 
+        // El juego sigue hasta que uno de los jugadores se queda sin vida.
+        do {
             if (p1.tieneStamina() || p2.tieneStamina()) {
 
                 if (p1.estaVivo()) {
@@ -53,9 +53,9 @@ public class JuegoLOTR {
                         System.out.println("                          ATACANDO JUGADOR 1");
                         System.out.println("               ★★★★★★★★★★★★★★★★★★★★★★★★★★");
                         resultadoJugadores(p1, p2);
-                        System.out.println("         ARMA JUGADOR 1: " + a1.getNombre() + " ---  DAÑO " + a1.getDanio() + " ---  STAMINA " + a1.getStamina());
-                    } 
-                    else {
+                        System.out.println("         ARMA JUGADOR 1: " + a1.getNombre() + " ---  DAÑO " + a1.getDanio()
+                                + " ---  STAMINA " + a1.getStamina());
+                    } else {
                         System.out.println("         ");
                         System.out.println("                            TE QUEDASTE SIN STAMINA " + p1.getNombre());
                     }
@@ -63,7 +63,7 @@ public class JuegoLOTR {
                 } else {
                     System.out.println("                  ");
                     System.out.println("                  ");
-                    System.out.println("                            GAME OVER " + p1.getNombre() );
+                    System.out.println("                            GAME OVER " + p1.getNombre());
                 }
 
                 if (p2.estaVivo()) {
@@ -77,9 +77,9 @@ public class JuegoLOTR {
                         System.out.println("                          ATACANDO JUGADOR 2");
                         System.out.println("               ★★★★★★★★★★★★★★★★★★★★★★★★★★");
                         resultadoJugadores(p1, p2);
-                        System.out.println("         ARMA JUGADOR 2: " + a2.getNombre() + " ---  DAÑO " + a2.getDanio() + " ---  STAMINA " + a2.getStamina());
-                    } 
-                   else {
+                        System.out.println("         ARMA JUGADOR 2: " + a2.getNombre() + " ---  DAÑO " + a2.getDanio()
+                                + " ---  STAMINA " + a2.getStamina());
+                    } else {
                         System.out.println("         ");
                         System.out.println("                       TE QUEDASTE SIN STAMINA " + p2.getNombre());
 
@@ -87,10 +87,10 @@ public class JuegoLOTR {
                 } else {
                     System.out.println("          ");
                     System.out.println("                  ");
-                    System.out.println("                            GAME OVER " + p2.getNombre() );
+                    System.out.println("                            GAME OVER " + p2.getNombre());
                 }
 
-                 } else {
+            } else {
                 System.out.println("                         ");
                 System.out.println("                         ");
 
@@ -99,36 +99,35 @@ public class JuegoLOTR {
                 System.out.println("                                 EMPATE         ");
                 break;
             }
-        
 
-        }while(p1.estaVivo()&&p2.estaVivo());
+        } while (p1.estaVivo() && p2.estaVivo());
 
-    // Resultado de la Batalla
+        // Resultado de la Batalla
         System.out.println("       ");
         System.out.println("       ");
         System.out.println("                          FINAL DE LA BATALLA ");
         System.out.println("                     ⛧⛧⛧⛧⛧⛧⛧⛧⛧⛧⛧⛧⛧⛧⛧");
-        System.out.println("         JUGADOR 1:  " + p1.getNombre() + " ---  SALUD " + p1.getSalud() + " ---  STAMINA " + p1.getStamina());
-        System.out.println("         JUGADOR 2:  " + p2.getNombre() + " ---  SALUD " + p2.getSalud() + " ---  STAMINA " + p2.getStamina());
+        System.out.println("         JUGADOR 1:  " + p1.getNombre() + " ---  SALUD " + p1.getSalud() + " ---  STAMINA "
+                + p1.getStamina());
+        System.out.println("         JUGADOR 2:  " + p2.getNombre() + " ---  SALUD " + p2.getSalud() + " ---  STAMINA "
+                + p2.getStamina());
         System.out.println("       ");
         System.out.println("       ");
 
+        if (p1.estaVivo())
 
-        if(p1.estaVivo())
+        {
+            System.out.println("                      ⛧  GANADOR: " + p1.getNombre());
+        }
+        if (p2.estaVivo()) {
+            System.out.println("                      ⛧  GANADOR: " + p2.getNombre());
+        }
 
-    {
-        System.out.println("                      ⛧  GANADOR: " + p1.getNombre());
-    }if(p2.estaVivo())
-    {
-        System.out.println("                      ⛧  GANADOR: " + p2.getNombre());
-    }
+        if (!p1.estaVivo() && !p2.estaVivo()) {
+            System.out.println("                                       AMBOS SE MURIERON");
 
-    if(!p1.estaVivo()&&!p2.estaVivo())
-    {
-        System.out.println("                                       AMBOS SE MURIERON");
-
-        System.out.println("                                             EMPATE         ");
-    }
+            System.out.println("                                             EMPATE         ");
+        }
 
     }
 
@@ -183,9 +182,10 @@ public class JuegoLOTR {
 
         System.out.println("                                          ");
 
-        System.out.println("         JUGADOR 1:  " + p1.getNombre() + " ---  SALUD " + p1.getSalud() + " ---  STAMINA " + p1.getStamina());
-        System.out.println("         JUGADOR 2:  " + p2.getNombre() + " ---  SALUD " + p2.getSalud() + " ---  STAMINA " + p2.getStamina());
-
+        System.out.println("         JUGADOR 1:  " + p1.getNombre() + " ---  SALUD " + p1.getSalud() + " ---  STAMINA "
+                + p1.getStamina());
+        System.out.println("         JUGADOR 2:  " + p2.getNombre() + " ---  SALUD " + p2.getSalud() + " ---  STAMINA "
+                + p2.getStamina());
 
         System.out.println("                            ");
     }

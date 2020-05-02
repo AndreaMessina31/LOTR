@@ -29,7 +29,6 @@ public class App {
         System.out.println("                                ");
         System.out.println("                                ");
 
-
         int numero = 1;
         while (numero == 1) {
             inicializar();
@@ -45,9 +44,10 @@ public class App {
             System.out.println("                                          ");
             System.out.println("                                ");
             System.out.println("           JUGADOR 1 " + "                               JUGADOR 2 ");
-            System.out.println("        NOMBRE " + p1.getNombre() + "                           NOMBRE " + p2.getNombre());
-            System.out
-                    .println("         SALUD " + p1.getSalud() + "                                SALUD " + p2.getSalud());
+            System.out.println(
+                    "        NOMBRE " + p1.getNombre() + "                           NOMBRE " + p2.getNombre());
+            System.out.println(
+                    "         SALUD " + p1.getSalud() + "                                SALUD " + p2.getSalud());
             System.out.println(
                     "       STAMINA " + p1.getStamina() + "                              STAMINA " + p2.getStamina());
             if (p1 instanceof IHaceMagia && p2 instanceof IHaceMagia) {
@@ -98,23 +98,23 @@ public class App {
             numero = teclado.nextInt();
         }
 
-        //TODO - PERSONAJES
+        // TODO - PERSONAJES
 
-        System.out.println("                                           ___\n" +
-                "                                         .';:;'.\n" +
-                "                                        /_' _' /\\   __\n" +
-                "                                        ;a/ e= J/-'\"  '.\n" +
-                "  GOOD BYE MY PRECIOUS!                 \\ ~_   (  -'  ( ;_ ,.\n" +
-                "                                         L~\"'_.    -.  \\ ./  )\n" +
-                "                                         ,'-' '-._  _;  )'   (\n" +
-                "                                       .' .'   _.'\")  \\  \\(  |\n" +
-                "                                      /  (  .-'   __\\{`', \\  |\n" +
-                "                                     / .'  /  _.-'   \"  ; /  |\n" +
-                "                                    / /    '-._'-,     / / \\ (\n" +
-                "                                 __/ (_    ,;' .-'    / /  /_'-._\n" +
-                "                                `\"-'` ~`  ccc.'   __.','     \\j\\L\\\n" +
-                "                                                 .='/|\\7      \n" +
-                "                                                   ' `");
+        System.out.println("                                           ___\n"
+                + "                                         .';:;'.\n"
+                + "                                        /_' _' /\\   __\n"
+                + "                                        ;a/ e= J/-'\"  '.\n"
+                + "  GOOD BYE MY PRECIOUS!                 \\ ~_   (  -'  ( ;_ ,.\n"
+                + "                                         L~\"'_.    -.  \\ ./  )\n"
+                + "                                         ,'-' '-._  _;  )'   (\n"
+                + "                                       .' .'   _.'\")  \\  \\(  |\n"
+                + "                                      /  (  .-'   __\\{`', \\  |\n"
+                + "                                     / .'  /  _.-'   \"  ; /  |\n"
+                + "                                    / /    '-._'-,     / / \\ (\n"
+                + "                                 __/ (_    ,;' .-'    / /  /_'-._\n"
+                + "                                `\"-'` ~`  ccc.'   __.','     \\j\\L\\\n"
+                + "                                                 .='/|\\7      \n"
+                + "                                                   ' `");
     }
 
     private static void inicializar() {
@@ -123,5 +123,5 @@ public class App {
         JuegoLOTR juego = new JuegoLOTR();
         juego.inicializar();
     }
-    
+
 }

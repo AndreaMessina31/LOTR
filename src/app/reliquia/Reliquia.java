@@ -1,14 +1,14 @@
 package app.reliquia;
 
 public class Reliquia {
-    public String  nombre;
-    public double  factorDeAtaque;
+    public String nombre;
+    public double factorDeAtaque;
     public double factorDeDefensa;
 
     public Reliquia(String nombre, double factorDeAtaque, double factorDeDefensa) {
-        this.nombre = nombre; 
-        this.factorDeAtaque  = factorDeAtaque;
-		this.factorDeDefensa  = factorDeDefensa;
+        this.nombre = nombre;
+        this.factorDeAtaque = factorDeAtaque;
+        this.factorDeDefensa = factorDeDefensa;
     }
 
     public double getFactorDeAtaque() {
@@ -23,7 +23,3 @@ public class Reliquia {
         return nombre;
     }
 }
-
-
-
-

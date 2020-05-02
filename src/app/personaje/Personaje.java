@@ -76,7 +76,9 @@ public class Personaje {
                 System.out.println("                  ---------------------------");
                 Scanner teclado = new Scanner(System.in);
                 e = teclado.nextInt();
-               if (e==1){ personajeQueHaceMagia.ataqueEpico(personajeAtacado, arma);}
+                if (e == 1) {
+                    personajeQueHaceMagia.ataqueEpico(personajeAtacado, arma);
+                }
 
             } else {
                 personajeAtacado.setSalud(personajeAtacado.getSalud() - arma.getDanio());
